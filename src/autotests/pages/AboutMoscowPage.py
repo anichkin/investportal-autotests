@@ -15,35 +15,26 @@ class AboutMoscowPage:
             'tab': (By.ID, 'investments-tab'),
             'info': (By.ID, 'nav-investments')
         }
-    TABS_AND_INFO = [
-        
-        {
-            'tab': (By.ID, 'investments-tab'),
-            'info': (By.ID, 'nav-investments')
-        },
-        {
+    FINANCE = {
             'tab': (By.ID, 'finance-tab'),
             'info': (By.ID, 'nav-finance')
-        },
-        {
+        }
+    BUSINESS = {
             'tab': (By.ID, 'business-tab'),
             'info': (By.ID, 'nav-business')
-        },
-        {
+        }
+    TRANSPORT = {
             'tab': (By.ID, 'transport-tab'),
             'info': (By.ID, 'nav-transport')
-        },
-        {
+        }
+    LIVES = {
             'tab': (By.ID, 'lives-tab'),
             'info': (By.ID, 'nav-lives')
-        },
-        {
+        }
+    ECOLOGY = {
             'tab': (By.ID, 'ecology-tab'),
             'info': (By.ID, 'nav-ecology')
-        },
-    ]
-    
-
+        }
 
 
 
