@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class OnlineServicesPage:
 
-    URL = 'https://investmoscow.upt24.ru/'
+    URL = 'https://investmoscow.ru/'
     TITLE = 'Онлайн сервисы - Инвестиционный портал Москвы'
 
     def __init__(self, driver):

@@ -36,6 +36,8 @@ class AboutMoscowPage:
             'info': (By.ID, 'nav-ecology')
         }
 
+    DETAILS_BTN = (By.XPATH, '/html/body/div[1]/div[8]/a[2]')
+
 
 
     def __init__(self, driver):
@@ -65,6 +67,13 @@ class AboutMoscowPage:
             return True
         except:
             return False
+
+
+
+    def check_details(self):
+        '''Проверка перехода в Подробнее'''
+        details = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(AboutMoscowPage.DETAILS_BTN))
+        details.click()
 
     
 
