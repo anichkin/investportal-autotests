@@ -7,11 +7,11 @@ from autotests.pages.InvestmentMapPage import InvestmentMapPage
 from autotests.pages.ProjectsPage import ProjectsPage
 
 
-# @pytest.fixture
-# def driver():
-#     options = webdriver.ChromeOptions()
-#     options.add_argument("--start-maximized")
-#     return webdriver.Chrome(options=options)
+@pytest.fixture
+def driver():
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+    return webdriver.Chrome(options=options)
 
 
 def test_check_economics_info(driver):
