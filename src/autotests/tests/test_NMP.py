@@ -4,7 +4,7 @@ from autotests.pages.MainPage import MainPage
 from autotests.pages.NMPPage import NMPPage
 from selenium.webdriver.common.by import By
 
-
+#testtttt
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
