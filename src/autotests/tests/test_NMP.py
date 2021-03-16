@@ -12,7 +12,7 @@ def driver():
     return webdriver.Chrome(options=options)
 
 
-def check_nmp_availability(driver):
+def test_nmp_availability(driver):
     driver.get(NMPPage.URL)
     driver.find_element(By.XPATH, '//*[@id="nsmFilters"]/div[2]/h3')
 
