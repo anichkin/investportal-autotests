@@ -4,7 +4,7 @@ from autotests.pages.MainPage import MainPage
 from autotests.pages.NMPPage import NMPPage
 from selenium.webdriver.common.by import By
 
-#testtttt
+
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
@@ -12,9 +12,9 @@ def driver():
     return webdriver.Chrome(options=options)
 
 
-def test_nmp_availability(driver):
-    driver.get(NMPPage.URL)
-    driver.find_element(By.XPATH, '//*[@id="nsmFilters"]/div[2]/h3')
+# def test_nmp_availability(driver):
+#     driver.get(NMPPage.URL)
+#     driver.find_element(By.XPATH, '//*[@id="nsmFilters"]/div[2]/h3')
 
 
 if __name__ == "__main__":
