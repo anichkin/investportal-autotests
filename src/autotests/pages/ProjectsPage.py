@@ -6,7 +6,7 @@ class ProjectsPage:
 
     URL = 'https://investmoscow.ru/about-moscow/projects'
     TITLE = 'Проекты - Инвестиционный портал Москвы'
-    PROJECTS = (By.XPATH, '//*[@id="mm-0"]/div[8]/div[2]/div/div/div[1]')
+    PROJECTS = (By.XPATH, '//*[@id="mm-0"]/div[7]/div[1]/h2')
 
 
     def __init__(self, driver):

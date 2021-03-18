@@ -1,3 +1,4 @@
+import allure
 import pytest
 from selenium import webdriver
 from autotests.pages.AboutMoscowPage import AboutMoscowPage
@@ -101,7 +102,7 @@ def test_check_brochure(driver):
     moscow_in_number = MoscowInNumberPage(driver)
     moscow_in_number.check_brochure()
     
-    
+
 def test_check_map(driver):
     '''Проверка показа инвесткарты'''
 

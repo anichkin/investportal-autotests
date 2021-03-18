@@ -36,7 +36,7 @@ class AboutMoscowPage:
             'info': (By.ID, 'nav-ecology')
         }
 
-    DETAILS_BTN = (By.XPATH, '/html/body/div[1]/div[8]/a[2]')
+    DETAILS_BTN = (By.XPATH, '//*[@id="mm-0"]/div[7]/a[2]')
 
 
 
