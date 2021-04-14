@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium import webdriver
 from autotests.pages.MainPage import MainPage
@@ -12,9 +14,12 @@ def driver():
     return webdriver.Chrome(options=options)
 
 
-# def test_nmp_availability(driver):
-#     driver.get(NMPPage.URL)
-#     driver.find_element(By.XPATH, '//*[@id="nsmFilters"]/div[2]/h3')
+def test_nmp_availability(driver):
+    driver.get(NMPPage.URL)
+    nmp_page = NMPPage(driver)
+    time.sleep(5)
+    nmp_page.check_elements()
+    time.sleep(10)
 
 
 if __name__ == "__main__":
