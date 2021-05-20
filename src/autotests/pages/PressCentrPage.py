@@ -7,7 +7,7 @@ class PressCentrPage:
 
     URL = 'https://investmoscow.upt24.ru/press-center'
     TITLE = 'Пресс-центр - Инвестиционный портал Москвы'
-    NEWS_AND_EVENTS = (By.XPATH, '//*[@id="mm-0"]/div[7]/h2')
+    NEWS_AND_EVENTS = (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/h2')
     INVEST_DAYDJEST = (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/h1')
     
     

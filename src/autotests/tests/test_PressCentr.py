@@ -16,7 +16,7 @@ def test_news(driver):
     driver.get(PressCentrPage.URL)
     press_centr = PressCentrPage(driver)
     assert press_centr.check_news_and_events() == 'НОВОСТИ И МЕРОПРИЯТИЯ'
-    # assert press_centr.check_invest_daydjest() == 'Инвестиционный дайджест'
+    assert press_centr.check_invest_daydjest() == 'ИНВЕСТИЦИОННЫЙ ДАЙДЖЕСТ'
 
 
 
