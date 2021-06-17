@@ -78,7 +78,7 @@ def test_check_details(driver):
     moscow_in_number = MoscowInNumberPage(driver)
     about_moscow.check_details()
     assert moscow_in_number.get_title() == 'Москва в цифрах - Инвестиционный портал Москвы'
-    moscow_in_number.check_blocks_and_menu()
+    # moscow_in_number.check_blocks_and_menu()
     moscow_in_number.check_brochure()
 
 
@@ -101,7 +101,7 @@ def test_check_brochure(driver):
     moscow_in_number = MoscowInNumberPage(driver)
     moscow_in_number.check_brochure()
     
-    
+
 def test_check_map(driver):
     '''Проверка показа инвесткарты'''
 

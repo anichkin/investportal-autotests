@@ -21,7 +21,7 @@ class MoscowInNumberPage:
     LIVE_INFO = (By.XPATH, '//*[@id="mm-0"]/div[8]/div[13]')
     ECOLOGY = (By.ID, 'ecology')
     ECOLOGY_INFO = (By.XPATH, '//*[@id="mm-0"]/div[8]/div[15]')
-    ECONOMIC_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[1]/a')
+    ECONOMIC_NAV = (By.XPATH, '//*[@id="mm-0"]/div[7]/div[3]/div/nav/a[1]')
     INVESTITION_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[2]/a')
     FINANSE_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[3]/a')
     BUSINES_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[4]/a')
@@ -29,8 +29,8 @@ class MoscowInNumberPage:
     LIVE_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[6]/a')
     ECOLOGY_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[7]/a')
     DOCS_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[8]/a')
-    PODPISKA = (By.XPATH, '//*[@id="sticky-wrapper"]/div/div/div/div[1]/a')
-    DOWNLOAD_BROCHURE = (By.XPATH, '//*[@id="sticky-wrapper"]/div/div/div/div[2]/a')
+    PODPISKA = (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[3]/div/nav/div/div[1]/a')
+    DOWNLOAD_BROCHURE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[3]/div/nav/div/div[2]/a')
 
 
 

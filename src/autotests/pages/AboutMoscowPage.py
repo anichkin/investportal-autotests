@@ -8,35 +8,35 @@ class AboutMoscowPage:
     URL = 'https://investmoscow.ru/about-moscow'
     TITLE = 'О Москве - Инвестиционный портал Москвы'
     ECONOMICS = {
-            'tab': (By.ID, 'economics-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[1]'),
             'info': (By.ID, 'nav-economics')
         }
     INVESTMENTS = {
-            'tab': (By.ID, 'investments-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[2]'),
             'info': (By.ID, 'nav-investments')
         }
     FINANCE = {
-            'tab': (By.ID, 'finance-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[3]'),
             'info': (By.ID, 'nav-finance')
         }
     BUSINESS = {
-            'tab': (By.ID, 'business-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[4]'),
             'info': (By.ID, 'nav-business')
         }
     TRANSPORT = {
-            'tab': (By.ID, 'transport-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[5]'),
             'info': (By.ID, 'nav-transport')
         }
     LIVES = {
-            'tab': (By.ID, 'lives-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[6]'),
             'info': (By.ID, 'nav-lives')
         }
     ECOLOGY = {
-            'tab': (By.ID, 'ecology-tab'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[7]'),
             'info': (By.ID, 'nav-ecology')
         }
 
-    DETAILS_BTN = (By.XPATH, '/html/body/div[1]/div[8]/a[2]')
+    DETAILS_BTN = (By.XPATH, '//*[@id="mm-0"]/div[7]/a[2]')
 
 
 
