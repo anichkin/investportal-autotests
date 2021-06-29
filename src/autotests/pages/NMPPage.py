@@ -1,15 +1,18 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
 class NMPPage:
+    
     URL = 'https://investmoscow.ru/online-services/navigator-support-measures'
     TITLE = 'Навигатор мер поддержки - Инвестиционный портал Москвы'
     NMP_FILTER = (By.ID, 'nsmFilters')
     SUPPORT_MEASURES = (By.ID, 'supportMeasures')
     EXPORT_BUTTON = (By.XPATH, '//*[@id="supportMeasures"]/div[1]/div[2]')
+
+
+
 
     def __init__(self, driver):
         '''Вызывается при создании PageObject'''
