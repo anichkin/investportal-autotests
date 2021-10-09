@@ -1,11 +1,12 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .base_page import BasePage
 
 
-class AboutMoscowPage:
+class AboutMoscowPage(BasePage):
 
-    URL = 'https://investmoscow.ru/about-moscow'
+    PATH = '/about-moscow'
     TITLE = 'О Москве - Инвестиционный портал Москвы'
     ECONOMICS = {
             'tab': (By.ID, 'economics-tab'),
@@ -36,12 +37,7 @@ class AboutMoscowPage:
             'info': (By.ID, 'nav-ecology')
         }
 
-
-
-    def __init__(self, driver):
-        '''Вызывается при создании PageObject'''
-
-        self.driver = driver
+    DETAILS_BTN = (By.XPATH, '/html/body/div[1]/div[8]/a[2]')
 
 
     def get_title(self):
@@ -65,6 +61,13 @@ class AboutMoscowPage:
             return True
         except:
             return False
+
+
+
+    def check_details(self):
+        '''Проверка перехода в Подробнее'''
+        details = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(AboutMoscowPage.DETAILS_BTN))
+        details.click()
 
     
 
