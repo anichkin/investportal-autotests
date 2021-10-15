@@ -9,6 +9,7 @@ def test_check_economics_info(driver, base_url):
     '''Проверка перехода в "Экономика" и наличие информации'''
 
     about_moscow = AboutMoscowPage(driver, base_url)
+    print(about_moscow.url)
     about_moscow.get()
     assert about_moscow.check_info(AboutMoscowPage.ECONOMICS['info'])
 
