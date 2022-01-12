@@ -30,7 +30,7 @@ class MoscowInNumberPage(BasePage):
     LIVE_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[6]/a')
     ECOLOGY_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[7]/a')
     DOCS_NAV = (By.XPATH, '//*[@id="myScrollspy"]/ul/li[8]/a')
-    PODPISKA = (By.XPATH, '//*[@id="sticky-wrapper"]/div/div/div/div[1]/a')
+    PODPISKA = (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[3]/div/nav/div/div[1]/a/span')
     DOWNLOAD_BROCHURE = (By.XPATH, '//*[@id="sticky-wrapper"]/div/div/div/div[2]/a')
 
 
