@@ -6,3 +6,4 @@ from .online_services_page import OnlineServicesPage
 from .podpiska_inwest_digest_page import PodpiskaInwestDigestPage
 from .projects_page import ProjectsPage
 from .tenders_page import TendersPage
+from .new_tenders_page import NewTendersPage
