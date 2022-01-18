@@ -37,7 +37,7 @@ class AboutMoscowPage(BasePage):
             'info': (By.ID, 'nav-ecology')
         }
 
-    DETAILS_BTN = (By.XPATH, '/html/body/div[1]/div[8]/a[2]')
+    DETAILS_BTN = (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[3]/a')
 
 
     def get_title(self):

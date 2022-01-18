@@ -60,18 +60,18 @@ def test_check_ecology_info(driver, base_url):
     assert about_moscow.check_tab(AboutMoscowPage.ECOLOGY['tab'])
     assert about_moscow.check_info(AboutMoscowPage.ECOLOGY['info'])
 
-# исправить
-# def test_check_details(driver, base_url):
-#     '''Проверям переход по кнопке Подробнее и нажатие на динамеческое меню'''
 
-#     about_moscow = AboutMoscowPage(driver, base_url)
-#     about_moscow.get()
-#     moscow_in_number = MoscowInNumberPage(driver, base_url)
-#     moscow_in_number.get()
-#     about_moscow.check_details()
-#     assert moscow_in_number.get_title() == MoscowInNumberPage.TITLE
-#     moscow_in_number.check_blocks_and_menu()
-#     moscow_in_number.check_brochure()
+def test_check_details(driver, base_url):
+    '''Проверям переход по кнопке Подробнее и нажатие на динамеческое меню'''
+
+    about_moscow = AboutMoscowPage(driver, base_url)
+    about_moscow.get()
+    about_moscow.check_details()
+    moscow_in_number = MoscowInNumberPage(driver, base_url)
+    moscow_in_number.get()
+    assert moscow_in_number.get_title() == MoscowInNumberPage.TITLE
+    moscow_in_number.check_blocks_and_menu()
+    moscow_in_number.check_brochure()
 
 
 def test_check_podpiska(driver, base_url):
