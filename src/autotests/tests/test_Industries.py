@@ -12,10 +12,10 @@ def driver():
     return webdriver.Chrome(options=options)
 
 
-def test_blocks(driver):
-    driver.get(IndustriesPage.URL)
-    industries = IndustriesPage(driver)
-    industries.check_blocks()
+# def test_blocks(driver):
+#     driver.get(IndustriesPage.URL)
+#     industries = IndustriesPage(driver)
+#     industries.check_blocks()
 
 
 
