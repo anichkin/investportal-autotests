@@ -7,7 +7,7 @@ class InvestmentMapPage:
 
     URL = 'https://investmoscow.ru/about-moscow/investment-map'
     TITLE = 'Инвестиционная карта Москвы - Инвестиционный портал Москвы'
-    MAP = (By.ID, 'map')
+    MAP = (By.ID, 'investment-map')
 
 
 

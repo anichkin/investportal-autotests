@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from .base_page import BasePage
 
 
-class IndustriesPage(BasePage):
+class IndustriesPage2(BasePage):
 
     PATH = '/industries'
     TITLE = 'Промышленности - Инвестиционный портал Москвы'

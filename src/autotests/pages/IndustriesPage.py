@@ -1,25 +1,22 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .base_page import BasePage
 
 
-class IndustriesPage:
 
-    URL = 'https://investmoscow.ru/industries'
+class IndustriesPage(BasePage):
+
+    PATH = '/industries'
     TITLE = 'Промышленности - Инвестиционный портал Москвы'
-    MOSCOW_TECHNICAL_SCHOOL = (By.XPATH, '//*[@id="invest-moscow-app"]/div[9]/div')
-    BANNER_TECH_SCOOL = (By.XPATH, '//*[@id="invest-moscow-app"]/div[13]')
-    PRODUCTION = (By.XPATH, '//*[@id="invest-moscow-app"]/div[16]/div')
-    PROM_BANNER = (By.XPATH, '//*[@id="invest-moscow-app"]/div[20]')
-    BANK = (By.XPATH, '//*[@id="invest-moscow-app"]/div[23]/div')
-    INDUSTRIES_BANNER = (By.XPATH, '//*[@id="invest-moscow-app"]/div[27]')
-    EVOLUTION_CONTENT = (By.XPATH, '//*[@id="invest-moscow-app"]/div[28]')
-    ANALYTICAL_MATERIALS = (By.XPATH, '//*[@id="invest-moscow-app"]/div[30]')
-
-    def __init__(self, driver):
-        '''Вызывается при создании PageObject'''
-
-        self.driver = driver
+    MOSCOW_TECHNICAL_SCHOOL = (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]')
+    BANNER_TECH_SCOOL = (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[2]/div/div[2]/img')
+    PRODUCTION = (By.XPATH, '//*[@id="invest-moscow-app"]/div[13]')
+    PROM_BANNER = (By.XPATH, '//*[@id="invest-moscow-app"]/div[15]/div[2]/div/h4')
+    BANK = (By.XPATH, '//*[@id="invest-moscow-app"]/div[20]')
+    INDUSTRIES_BANNER = (By.XPATH, '//*[@id="invest-moscow-app"]/div[22]/div[2]/div/h4')
+    EVOLUTION_CONTENT = (By.XPATH, '//*[@id="invest-moscow-app"]/div[23]/div')
+    ANALYTICAL_MATERIALS = (By.XPATH, '//*[@id="invest-moscow-app"]/div[27]')
 
     def get_title(self):
         '''Функция получения тайтла страницы'''

@@ -9,31 +9,31 @@ class AboutMoscowPage(BasePage):
     PATH = '/about-moscow'
     TITLE = 'О Москве - Инвестиционный портал Москвы'
     ECONOMICS = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[1]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[3]/div/nav/a[1]'),
             'info': (By.ID, 'nav-economics')
         }
     INVESTMENTS = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[2]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[3]/div/nav/a[2]'),
             'info': (By.ID, 'nav-investments')
         }
     FINANCE = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[3]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/div/div/a[3]'),
             'info': (By.ID, 'nav-finance')
         }
     BUSINESS = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[4]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/div/div/a[4]'),
             'info': (By.ID, 'nav-business')
         }
     TRANSPORT = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[5]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/div/div/a[5]'),
             'info': (By.ID, 'nav-transport')
         }
     LIVES = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[6]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/div/div/a[6]'),
             'info': (By.ID, 'nav-lives')
         }
     ECOLOGY = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[7]/div[1]/div/div/a[7]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/div/div/a[7]'),
             'info': (By.ID, 'nav-ecology')
         }
 

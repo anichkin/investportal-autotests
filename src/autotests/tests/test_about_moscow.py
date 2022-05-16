@@ -7,9 +7,7 @@ from autotests.pages.projects_page import ProjectsPage
 
 def test_check_economics_info(driver, base_url):
     '''Проверка перехода в "Экономика" и наличие информации'''
-
     about_moscow = AboutMoscowPage(driver, base_url)
-    print(about_moscow.url)
     about_moscow.get()
     assert about_moscow.check_info(AboutMoscowPage.ECONOMICS['info'])
 
@@ -30,7 +28,6 @@ def test_check_finance_info(driver, base_url):
 
 def test_check_business_info(driver, base_url):
     '''Проверка перехода в "Условия для бизнеса" и наличие информации'''
-
     about_moscow = AboutMoscowPage(driver, base_url)
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.BUSINESS['tab'])
@@ -74,15 +71,15 @@ def test_check_ecology_info(driver, base_url):
 #     moscow_in_number.check_brochure()
 
 
-def test_check_podpiska(driver, base_url):
-    '''Проверяем подписку'''
-
-    moscow_in_number = MoscowInNumberPage(driver, base_url)
-    moscow_in_number.get()
-    moscow_in_number.check_podpiska()
-    podpiska_inwest_digest = PodpiskaInwestDigestPage(driver,base_url)
-    podpiska_inwest_digest.get()
-    assert podpiska_inwest_digest.get_title() == PodpiskaInwestDigestPage.TITLE
+# def test_check_podpiska(driver, base_url):
+#     '''Проверяем подписку'''
+#
+#     moscow_in_number = MoscowInNumberPage(driver, base_url)
+#     moscow_in_number.get()
+#     moscow_in_number.check_podpiska()
+#     podpiska_inwest_digest = PodpiskaInwestDigestPage(driver,base_url)
+#     podpiska_inwest_digest.get()
+#     assert podpiska_inwest_digest.get_title() == PodpiskaInwestDigestPage.TITLE
 
 
 # исправить

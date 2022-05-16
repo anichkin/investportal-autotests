@@ -22,10 +22,11 @@ class Filter():
 
 class NewTendersPage(BasePage):
 
-    PATH = '/new-tenders'
+    PATH = '/tenders'
     TITLE = 'Торги.Имущество - Инвестиционный портал Москвы'
-    OBJECT_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[2]/div[1]/div/div/div[2]/div[1]/div[1]'
-    TRADE_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[2]/div[1]/div/div/div[2]/div[1]/div[2]'
+    OBJECT_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[1]/div/div'
+    TRADE_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/div'
+    SEARCH_BUTTON = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[2]/button'
 
     def select_object_types(self, types: Iterable[str]) -> None:
         object_filter = Filter(self, NewTendersPage.OBJECT_TYPE_XPATH)
