@@ -4,11 +4,6 @@ from selenium.webdriver.common.by import By
 import allure
 
 
-def tearDown(driver):
-    if driver.exc_info()[0]:
-        test_method_name = driver._testMethodName
-        driver.save_screenshot("Screenshots/%s.png" % test_method_name)
-    super(driver).tearDown()
 
 def test_blocks(driver, base_url):
     """ Открытие раздела промышленности и проверка наличия блоков """
