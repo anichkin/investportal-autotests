@@ -1,7 +1,10 @@
+import sys
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .base_page import BasePage
+import allure
 
 
 
@@ -18,21 +21,34 @@ class IndustriesPage(BasePage):
     EVOLUTION_CONTENT = (By.XPATH, '//*[@id="invest-moscow-app"]/div[23]/div')
     ANALYTICAL_MATERIALS = (By.XPATH, '//*[@id="invest-moscow-app"]/div[27]')
 
+    def tearDown(self):
+        if sys.exc_info()[0]:
+            test_method_name = self.check_blocks()
+            self.driver.save_screenshot("Screenshots/%s.png" % test_method_name)
+        super(IndustriesPage, self).tearDown()
+
     def get_title(self):
         '''Функция получения тайтла страницы'''
 
         return self.driver.title
 
-        
-    def check_blocks(self):
-        '''Проверка отображения всех блоков на странице'''
 
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.MOSCOW_TECHNICAL_SCHOOL))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.BANNER_TECH_SCOOL))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.PRODUCTION))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.PROM_BANNER))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.BANK))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.INDUSTRIES_BANNER))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.EVOLUTION_CONTENT))
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.ANALYTICAL_MATERIALS))
+    def check_blocks(self):
+        with allure.step('Проверка наличия блока МТШ'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.MOSCOW_TECHNICAL_SCHOOL))
+        with allure.step('Проверка наличия баннера МТШ'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.BANNER_TECH_SCOOL))
+        with allure.step('Проверка наличия блока подбора промышленных площадок'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.PRODUCTION))
+        with allure.step('Проверка наличия баннера о заявке на включение в реестр площадок'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.PROM_BANNER))
+        with allure.step('Проверка наличия блока Банк технологий'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.BANK))
+        with allure.step('Проверка наличия баннера льготных займов и компенсаций'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.INDUSTRIES_BANNER))
+        with allure.step('Проверка наличия блока комплексного развития территорий'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.EVOLUTION_CONTENT))
+        with allure.step('Проверка наличия блока аналитических материалов'):
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(IndustriesPage.ANALYTICAL_MATERIALS))
+            allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
         

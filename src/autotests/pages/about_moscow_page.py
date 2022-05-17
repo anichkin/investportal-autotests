@@ -9,7 +9,7 @@ class AboutMoscowPage(BasePage):
     PATH = '/about-moscow'
     TITLE = 'О Москве - Инвестиционный портал Москвы'
     ECONOMICS = {
-            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[3]/div/nav/a[1]'),
+            'tab': (By.XPATH, '//*[@id="invest-moscow-app"]/div[8]/div[1]/div/div/a[1]'),
             'info': (By.ID, 'nav-economics')
         }
     INVESTMENTS = {
