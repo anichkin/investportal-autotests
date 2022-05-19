@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .base_page import BasePage
+import allure
 
 
 class MainPage(BasePage):
@@ -12,23 +13,29 @@ class MainPage(BasePage):
     LOGIN_INPUT = (By.ID, 'Login')
     PASSWORD_INPUT = (By.ID, 'Password')
     AUTH_BUTTON = (By.ID, 'authbtn')
+    ENTER_BUTTON_XPATH = '//*[@id="loginForm"]/input[1]'
     LINK_TO_ONLINE_SERVICES_PAGE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[2]/div[3]/div[1]/nav/a[5]')
-    LOGIN = 'ilyaaanichkin@yandex.ru'
-    PASSWORD = '1234567'
+    LOGIN = 'ilyaaanichkin@upt24.ru'
+    PASSWORD = 'lgRtaSnz$1'
     HEADER_USER_NAME = (By.XPATH, '//*[@id="auth-bt"]/a/span')
+    HEADER_USER_NAME_TEXT = 'Аничкин И. В.'
     
 
     def get_title(self):
         '''Функция получения тайтла страницы'''
         
         return self.driver.title
-    
+
+
+    def open_main_page(driver, base_url):
+        page = MainPage(driver, base_url)
+        page.get()
+        return page
 
     def get_header_user_name(self):
         '''Функция ожидания появления элемента при авторизации'''
 
-        header = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.HEADER_USER_NAME))
-        self.driver.save_screenshot(r"C:\\Users\Влад\Desktop\Skrins\test7.png")
+        header = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(MainPage.HEADER_USER_NAME))
         return header.text
 
     def go_to_online_services_page(self):
@@ -41,18 +48,13 @@ class MainPage(BasePage):
         '''Функция для ввода логина и пароля'''
 
         login_pic = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
-        self.driver.save_screenshot(r"C:\\Users\Влад\Desktop\Skrins\test.png")
         login_pic.click()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
         login_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.LOGIN_INPUT))
-        self.driver.save_screenshot(r"C:\\Users\Влад\Desktop\Skrins\test1.png")
         login_input.send_keys(MainPage.LOGIN)
-        self.driver.save_screenshot(r"C:\\Users\Влад\Desktop\Skrins\test2.png")
         password_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.PASSWORD_INPUT))
         password_input.send_keys(MainPage.PASSWORD)
-        self.driver.save_screenshot(r"C:\\Users\Влад\Desktop\Skrins\test3.png")
-        auth_button = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.AUTH_BUTTON))
-        auth_button.click()
-        self.driver.save_screenshot(r"C:\\Users\Влад\Desktop\Skrins\test4.png")
+        self.get_clicable_by_xpath(self.ENTER_BUTTON_XPATH).click()
         
 
     
