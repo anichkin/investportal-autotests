@@ -21,11 +21,6 @@ class IndustriesPage(BasePage):
     EVOLUTION_CONTENT = (By.XPATH, '//*[@id="invest-moscow-app"]/div[23]/div')
     ANALYTICAL_MATERIALS = (By.XPATH, '//*[@id="invest-moscow-app"]/div[27]')
 
-    def tearDown(self):
-        if sys.exc_info()[0]:
-            test_method_name = self.check_blocks()
-            self.driver.save_screenshot("Screenshots/%s.png" % test_method_name)
-        super(IndustriesPage, self).tearDown()
 
     def get_title(self):
         '''Функция получения тайтла страницы'''
