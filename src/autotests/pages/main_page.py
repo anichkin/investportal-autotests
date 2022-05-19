@@ -15,10 +15,11 @@ class MainPage(BasePage):
     AUTH_BUTTON = (By.ID, 'authbtn')
     ENTER_BUTTON_XPATH = '//*[@id="loginForm"]/input[1]'
     LINK_TO_ONLINE_SERVICES_PAGE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[2]/div[3]/div[1]/nav/a[5]')
-    LOGIN = 'ilyaaanichkin@upt24.ru'
-    PASSWORD = 'lgRtaSnz$1'
+    LOGIN = 'authorization_test@upt24.ru'
+    PASSWORD = '#eZam5rK'
     HEADER_USER_NAME = (By.XPATH, '//*[@id="auth-bt"]/a/span')
-    HEADER_USER_NAME_TEXT = 'Аничкин И. В.'
+    HEADER_USER_NAME_TEXT = 'Авторизация Т.'
+    LOGOUT = (By.ID, 'logout')
     
 
     def get_title(self):
@@ -55,6 +56,13 @@ class MainPage(BasePage):
         password_input.send_keys(MainPage.PASSWORD)
         allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
         self.get_clicable_by_xpath(self.ENTER_BUTTON_XPATH).click()
+
+    def logout(self):
+        logout = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
+        logout.click()
+        WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
+
+
         
 
     
