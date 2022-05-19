@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 def test_main_page(driver, base_url):
     with allure.step('1. Открытие страницы Московский инвестор'):
         page = MoscowInvestorPage.open_mos_investor_page(driver, base_url)
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('2. Проверка наличия основных заголовков'):
         assert page.title == page.TITLE
         assert page.get_visible_by_xpath(page.HEADING_XPATH).text == page.HEADING
@@ -37,6 +38,7 @@ def test_main_page(driver, base_url):
         assert page.get_visible_by_xpath(page.REAL_ESTATE_XPATH).text == page.REAL_ESTATE
         page.get_clicable_by_xpath(page.REAL_ESTATE_XPATH).click()
         assert page.get_visible_by_xpath(page.REAL_ESTATE_CATEGORY1_XPATH).text == page.REAL_ESTATE_CATEGORY1
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
         assert page.get_visible_by_xpath(page.TENDERS_XPATH).text == page.TENDERS
         page.get_clicable_by_xpath(page.TENDERS_XPATH).click()

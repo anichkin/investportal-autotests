@@ -49,11 +49,11 @@ class MainPage(BasePage):
 
         login_pic = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
         login_pic.click()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
         login_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.LOGIN_INPUT))
         login_input.send_keys(MainPage.LOGIN)
         password_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.PASSWORD_INPUT))
         password_input.send_keys(MainPage.PASSWORD)
+        allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
         self.get_clicable_by_xpath(self.ENTER_BUTTON_XPATH).click()
         
 
