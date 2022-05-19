@@ -23,7 +23,8 @@ class MoscowInvestorPage(BasePage):
     HEADING3_XPATH = '//*[@id="invest-moscow-app"]/div[9]/h2'
 
     CLASSIFICATOR_BUTTON = '//*[@id="eiip-master__content-header"]/div[3]/a'
-    LAND1 = '//*[@id="invest-moscow-app"]/div[8]/div[2]/div[3]/div[1]/div/span'
+    LAND = 'Земля'
+    LAND_XPATH = '//*[@id="invest-moscow-app"]/div[9]/div[2]/div[2]/div[1]/div[1]'
     LAND_CATEGORY1 = 'Предоставление льгот'
     LAND_CATEGORY1_XPATH = '//*[@id="invest-moscow-app"]/div[9]/div[2]/div[3]/div[1]/div/span'
     PROBLEM_36 = 'Отсрочка арендных платежей за земельный участок в связи с COVID-19 (Федеральный закон от 01.04.2020 № 98-ФЗ): получен отказ'
