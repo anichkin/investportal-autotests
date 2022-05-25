@@ -19,8 +19,9 @@ class MainPage(BasePage):
     PASSWORD = '#eZam5rK'
     HEADER_USER_NAME = (By.XPATH, '//*[@id="auth-bt"]/a/span')
     HEADER_USER_NAME_TEXT = 'Авторизация Т.'
-    LOGOUT = (By.ID, 'logout')
-    
+    LOGOUT = (By.XPATH, '//*[@id="logout"]')
+    HEADER_USER_NAME_LOGOUT = (By.CLASS_NAME, 'header_user_name auth-user-name auth-user-name_hidden')
+
 
     def get_title(self):
         '''Функция получения тайтла страницы'''
@@ -58,10 +59,11 @@ class MainPage(BasePage):
         self.get_clicable_by_xpath(self.ENTER_BUTTON_XPATH).click()
 
     def logout(self):
-        logout = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
+        menu = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
+        menu.click()
+        logout = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGOUT))
         logout.click()
-        WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
-
+        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located(MainPage.HEADER_USER_NAME_LOGOUT))
 
         
 

@@ -21,7 +21,7 @@ def test_main_page(driver, base_url):
         page.get_clicable_by_xpath(page.CLASSIFICATOR_BUTTON).click()
         assert page.get_visible_by_xpath(page.HEADING3_XPATH).text == page.HEADING3
         assert page.get_visible_by_xpath(page.LAND_XPATH).text == page.LAND
-        page.get_clicable_by_xpath(page.LAND_XPATH).click()
+        #page.get_clicable_by_xpath(page.LAND_XPATH).click()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         assert page.get_visible_by_xpath(page.LAND_CATEGORY1_XPATH).text == page.LAND_CATEGORY1
         assert page.get_visible_by_xpath(page.PROBLEM_36_XPATH).text == page.PROBLEM_36
