@@ -9,7 +9,7 @@ class MainPage(BasePage):
 
     PATH = ''
     TITLE = 'Главная - Инвестиционный портал Москвы'
-    LOGIN_PIC = (By.ID, 'auth-bt')
+    LOGIN_PIC = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div')
     LOGIN_INPUT = (By.ID, 'Login')
     PASSWORD_INPUT = (By.ID, 'Password')
     AUTH_BUTTON = (By.ID, 'authbtn')
