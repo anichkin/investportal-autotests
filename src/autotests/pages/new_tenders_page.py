@@ -36,7 +36,7 @@ class NewTendersPage(BasePage):
     THIRD_POPULAR_TENDER = '.list:nth-child(4) .uid-tenders-card:nth-child(3) > .uid-tenders-card__main'
     FIRST_SEARCH_RESULT_TENDER1 = '.uid-mb-0 .uid-tenders-card__main-left-col'
     FIRST_SEARCH_RESULT_TENDER2 = '.uid-tenders-card:nth-child(3) > .uid-tenders-card__main'
-    ALL_OBJECT_BUTTON = '.list:nth-child(3) .uid-btn > div'
+    ALL_OBJECT_BUTTON = '.list:nth-child(2) .uid-btn > div'
     WIDE_FILTER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div/div/div/div[1]'
     WIDE_FILTER = 'Расширенный поиск'
     SQUARE = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1/span'
