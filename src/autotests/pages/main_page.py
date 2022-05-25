@@ -9,7 +9,7 @@ class MainPage(BasePage):
 
     PATH = ''
     TITLE = 'Главная - Инвестиционный портал Москвы'
-    LOGIN_PIC = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div')
+    LOGIN_PIC = (By.CSS_SELECTOR, '.uid-mr-8')
     LOGIN_INPUT = (By.ID, 'Login')
     PASSWORD_INPUT = (By.ID, 'Password')
     AUTH_BUTTON = (By.ID, 'authbtn')
@@ -17,7 +17,7 @@ class MainPage(BasePage):
     LINK_TO_ONLINE_SERVICES_PAGE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[2]/div[3]/div[1]/nav/a[5]')
     LOGIN = 'authorization_test@upt24.ru'
     PASSWORD = '#eZam5rK'
-    HEADER_USER_NAME = (By.XPATH, '//*[@id="auth-bt"]/a/span')
+    HEADER_USER_NAME = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[1]/div/span')
     HEADER_USER_NAME_TEXT = 'Авторизация Т.'
     LOGOUT = (By.XPATH, '//*[@id="logout"]')
     HEADER_USER_NAME_LOGOUT = (By.CLASS_NAME, 'header_user_name auth-user-name auth-user-name_hidden')
@@ -37,7 +37,7 @@ class MainPage(BasePage):
     def get_header_user_name(self):
         '''Функция ожидания появления элемента при авторизации'''
 
-        header = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(MainPage.HEADER_USER_NAME))
+        header = WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(MainPage.HEADER_USER_NAME))
         return header.text
 
     def go_to_online_services_page(self):

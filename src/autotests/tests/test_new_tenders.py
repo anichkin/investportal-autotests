@@ -56,19 +56,19 @@ def test_page(driver, base_url):
 
 
 
-def test_tender(driver, base_url):
-    """Открытие подробной карточки торгов и проверка наличия элементов внутри"""
+#def test_tender(driver, base_url):
+        #"""Открытие подробной карточки торгов и проверка наличия элементов внутри"""
 
-    with allure.step('1. Открытие страницы торгов и переход к основному списку'):
-        page = NewTendersPage(driver, base_url)
-        page.get()
-        page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
+        #    with allure.step('1. Открытие страницы торгов и переход к основному списку'):
+        #        page = NewTendersPage(driver, base_url)
+        #page.get()
+        #page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
 
-    with allure.step('2.Открытие подробной страницы торгов'):
-        try:
-            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER1).click()
-        except Exception:
-            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER2).click()
+    #with allure.step('2.Открытие подробной страницы торгов'):
+        #    try:
+        #    page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER1).click()
+        #except Exception:
+    #    page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER2).click()
 
     # with allure.step('3. Проверка элементов на карточке торгов'):
     #     page.get_visible_by_xpath(page.MAP)
