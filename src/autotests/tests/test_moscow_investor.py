@@ -27,6 +27,10 @@ def test_main_page(driver, base_url):
         assert page.get_visible_by_xpath(page.PROBLEM_36_XPATH).text == page.PROBLEM_36
         assert page.get_visible_by_xpath(page.LAND_CATEGORY2_XPATH).text == page.LAND_CATEGORY2
         page.get_clicable_by_xpath(page.LAND_CATEGORY2_XPATH).click()
+        try:
+            assert page.get_visible_by_xpath(page.PROBLEM_38_XPATH).text == page.PROBLEM_38
+        except Exception:
+            page.get_clicable_by_xpath(page.LAND_CATEGORY2_XPATH).click()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         assert page.get_visible_by_xpath(page.PROBLEM_38_XPATH).text == page.PROBLEM_38
         assert page.get_visible_by_xpath(page.PROBLEM_1_XPATH).text == page.PROBLEM_1
@@ -34,6 +38,10 @@ def test_main_page(driver, base_url):
         assert page.get_visible_by_xpath(page.PROBLEM_125_XPATH).text == page.PROBLEM_125
         assert page.get_visible_by_xpath(page.LAND_CATEGORY3_XPATH).text == page.LAND_CATEGORY3
         page.get_clicable_by_xpath(page.LAND_CATEGORY3_XPATH).click()
+        try:
+            assert page.get_visible_by_xpath(page.PROBLEM_39_XPATH).text == page.PROBLEM_39
+        except Exception:
+            page.get_clicable_by_xpath(page.LAND_CATEGORY3_XPATH).click()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         assert page.get_visible_by_xpath(page.PROBLEM_39_XPATH).text == page.PROBLEM_39
         assert page.get_visible_by_xpath(page.PROBLEM_40_XPATH).text == page.PROBLEM_40
