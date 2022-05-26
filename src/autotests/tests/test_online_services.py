@@ -42,6 +42,47 @@ def test_direct_connection(driver, base_url, block=OnlineServicesPage.DIRECT_CON
             assert page.get_visible_by_xpath(page.INFORM_KIOSK_SUBTITLE_XPATH).text == page.INFORM_KIOSK_SUBTITLE
             assert page.get_clicable_by_xpath(page.INFORM_KIOSK_BUTTON_XPATH).text == page.INFORM_KIOSK_BUTTON
 
+def test_services(driver, base_url, block = OnlineServicesPage.SERVICES):
+    with allure.step('1. Перейти к блоку Услуги'):
+        page = OnlineServicesPage.open_online_services_page(driver, base_url, block)
+        page.get_clicable_by_css(page.SERVICES).click()
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+    with allure.step('2. Раскрыть полный список сервисов'):
+        page.get_clicable_by_xpath(page.SERVICES_FULL_LIST).click()
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+    with allure.step('3. Проверить наличие элементов в блоке'):
+        assert page.get_visible_by_xpath(page.SERVICES_HEADER_XPATH).text == page.SERVICES_HEADER
+        assert page.get_visible_by_xpath(page.SERVICES_SUBTITLE_XPATH).text == page.SERVICES_SUBTITLE
+        assert page.get_visible_by_xpath(page.SERVICES_HEADER2_XPATH).text == page.SERVICES_HEADER2
+        with allure.step('Проверка НАПРАВИТЬ ИНВЕСТИЦИОННЫЙ ПРОЕКТ'):
+            assert page.get_visible_by_xpath(page.INVEST_PROJECT_HEADER_XPATH).text == page.INVEST_PROJECT_HEADER
+            assert page.get_visible_by_xpath(page.INVEST_PROJECT_SUBTITLE_XPATH).text == page.INVEST_PROJECT_SUBTITLE
+            assert page.get_clicable_by_xpath(page.INVEST_PROJECT_BUTTON_XPATH).text == page.INVEST_PROJECT_BUTTON
+        with allure.step('Проверка АРЕНДА ПОМЕЩЕНИЙ В ТЕХНОПАРКАХ'):
+             assert page.get_visible_by_xpath(page.RENT_ROOM_HEADER_XPATH).text == page.RENT_ROOM_HEADER
+             assert page.get_visible_by_xpath(page.RENT_ROOM_SUBTITLE_XPATH).text == page.RENT_ROOM_SUBTITLE
+             assert page.get_clicable_by_xpath(page.RENT_ROOM_BUTTON_XPATH).text == page.RENT_ROOM_BUTTON
+        with allure.step('Проверка ЗАЯВКА НА ПОДБОР ПРОМЫШЛЕННОЙ ПЛОЩАДКИ'):
+            assert page.get_visible_by_xpath(page.REQUEST_FOR_AREA_HEADER_XPATH).text == page.REQUEST_FOR_AREA_HEADER
+            assert page.get_visible_by_xpath(page.REQUEST_FOR_AREA_SUBTITLE_XPATH).text == page.REQUEST_FOR_AREA_SUBTITLE
+            assert page.get_clicable_by_xpath(page.REQUEST_FOR_AREA_BUTTON_XPATH).text == page.REQUEST_FOR_AREA_BUTTON
+        with allure.step('Проверка ВКЛЮЧЕНИЕ В РЕЕСТР ПРОМПЛОЩАДОК'):
+            assert page.get_visible_by_xpath(page.INCLUDING_IN_REESTR_HEADER_XPATH).text == page.INCLUDING_IN_REESTR_HEADER
+            assert page.get_visible_by_xpath(page.INCLUDING_IN_REESTR_SUBTITLE_XPATH).text == page.INCLUDING_IN_REESTR_SUBTITLE
+            assert page.get_clicable_by_xpath(page.INCLUDING_IN_REESTR_BUTTON_XPATH).text == page.INCLUDING_IN_REESTR_BUTTON
+        with allure.step('Проверка НАПРАВИТЬ КОНЦЕССИОННУЮ ИНИЦИАТИВУ'):
+            assert page.get_visible_by_xpath(page.CONCESSION_INITIATIVE_HEADER_XPATH).text == page.CONCESSION_INITIATIVE_HEADER
+            assert page.get_visible_by_xpath(page.CONCESSION_INITIATIVE_SUBTITLE_XPATH).text == page.CONCESSION_INITIATIVE_SUBTITLE
+            assert page.get_clicable_by_xpath(page.CONCESSION_INITIATIVE_BUTTON_XPATH).text == page.CONCESSION_INITIATIVE_BUTTON
+        with allure.step('Проверка ИВЕСТИЦИОННЫЙ КАТАЛОГ'):
+            assert page.get_visible_by_xpath(page.INVEST_CATALOG_HEADER_XPATH).text == page.INVEST_CATALOG_HEADER
+            assert page.get_visible_by_xpath(page.INVEST_CATALOG_SUBTITLE_XPATH).text == page.INVEST_CATALOG_SUBTITLE
+            assert page.get_clicable_by_xpath(page.INVEST_CATALOG_BUTTON_XPATH).text == page.INVEST_CATALOG_BUTTON
+
+
+
+
+
 
 
 
