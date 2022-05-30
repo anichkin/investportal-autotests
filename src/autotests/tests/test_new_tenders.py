@@ -64,25 +64,24 @@ def test_tender(driver, base_url):
         page = NewTendersPage(driver, base_url)
         page.get()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-        third_tender = page.get_visible_by_xpath(page.NAVIGATION)
-        third_tender.location_once_scrolled_into_view
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        all_object_navigation = page.get_visible_by_xpath(page.NAVIGATION)
+        all_object_navigation.location_once_scrolled_into_view
+        time.sleep(2)
         page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 
     with allure.step('2.Открытие подробной страницы торгов'):
         try:
-            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER1).location_once_scrolled_into_view
-            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER1).click()
+            driver.execute_script("window.scrollTo(document.body.scrollHeight, 0);")
+            time.sleep(2)
+            page.get_visible_by_css(page.FIRST_SEARCH_RESULT_TENDER1).click()
             page.get_clicable_by_css(page.COLLAPSE_TENDERS).click()
             page.get_clicable_by_css(page.FIRST_COLLAPSE_TENDER).click()
         except Exception:
-            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER2).location_once_scrolled_into_view
-            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER2).click()
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+            driver.execute_script("window.scrollTo(document.body.scrollHeight, 0);")
+            time.sleep(2)
+            page.get_visible_by_css(page.FIRST_SEARCH_RESULT_TENDER2).click()
         handle = driver.window_handles
         driver.switch_to.window(handle[1])
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
@@ -92,8 +91,8 @@ def test_tender(driver, base_url):
          map = page.get_visible_by_xpath(page.MAP)
          page.get_clicable_by_xpath(page.DOCUMENT_BUTTON).click()
          page.get_clicable_by_xpath(page.OBJECT_DOCUMENT).click()
-         page.get_clicable_by_xpath(page.TENDER_DOCUMENT).click()
          map.location_once_scrolled_into_view
+         page.get_clicable_by_xpath(page.TENDER_DOCUMENT).click()
          allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         with allure.step('Проверка блока информации о торгах'):
          subject_tabs = page.get_visible_by_xpath(page.SUBJECT_TABS)

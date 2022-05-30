@@ -19,9 +19,9 @@ def test_open_page(driver, base_url):
 
 
     with allure.step('3. Проверка загрузки мер поддержки'):
+        page.get_clicable_by_xpath(page.MEASURES_BUTTON).location_once_scrolled_into_view
         page.get_clicable_by_xpath(page.MEASURES_BUTTON).click()
-        nmp = page.get_visible_by_xpath(page.SUPPORT_MEASURES_XPATH)
-        nmp.location_once_scrolled_into_view
+        page.get_visible_by_xpath(page.SUPPORT_MEASURES_XPATH).location_once_scrolled_into_view
         assert page.get_clicable_by_xpath(page.FIRST_MEASURE_XPATH).text == page.FIRST_MEASURE
         assert page.get_clicable_by_xpath(page.SECOND_MEASURE_XPATH).text == page.SECOND_MEASURE
         assert page.get_clicable_by_xpath(page.THIRD_MEASURE_XPATH).text == page.THIRD_MEASURE
