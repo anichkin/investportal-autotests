@@ -1,6 +1,7 @@
 
 from autotests.pages import NewTendersPage
 import allure
+import time
 
 
 def test_page(driver, base_url):
@@ -62,19 +63,52 @@ def test_tender(driver, base_url):
     with allure.step('1. Открытие страницы торгов и переход к основному списку'):
         page = NewTendersPage(driver, base_url)
         page.get()
-        driver.execute_script("window.scrollTo(0, 860)")
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        third_tender = page.get_visible_by_xpath(page.NAVIGATION)
+        third_tender.location_once_scrolled_into_view
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+
 
     with allure.step('2.Открытие подробной страницы торгов'):
         try:
+            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER1).location_once_scrolled_into_view
+            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
             page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER1).click()
+            page.get_clicable_by_css(page.COLLAPSE_TENDERS).click()
+            page.get_clicable_by_css(page.FIRST_COLLAPSE_TENDER).click()
         except Exception:
+            page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER2).location_once_scrolled_into_view
+            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
             page.get_clicable_by_css(page.FIRST_SEARCH_RESULT_TENDER2).click()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        handle = driver.window_handles
+        driver.switch_to.window(handle[1])
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
-    # with allure.step('3. Проверка элементов на карточке торгов'):
-    #     page.get_visible_by_xpath(page.MAP)
+    with allure.step('3. Проверка элементов на карточке торгов'):
+        with allure.step('Проверка наличия карты и раскрытия документов'):
+         map = page.get_visible_by_xpath(page.MAP)
+         page.get_clicable_by_xpath(page.DOCUMENT_BUTTON).click()
+         page.get_clicable_by_xpath(page.OBJECT_DOCUMENT).click()
+         page.get_clicable_by_xpath(page.TENDER_DOCUMENT).click()
+         map.location_once_scrolled_into_view
+         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        with allure.step('Проверка блока информации о торгах'):
+         subject_tabs = page.get_visible_by_xpath(page.SUBJECT_TABS)
+         subject_tabs.location_once_scrolled_into_view
+         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        with allure.step('Проверка блока похожих объектов'):
+         simular_objects = page.get_visible_by_xpath(page.SIMULAR_OBJECTS)
+         simular_objects.location_once_scrolled_into_view
+         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        with allure.step('Проверка блока мероприятий'):
+         events = page.get_visible_by_xpath(page.EVENTS)
+         events.location_once_scrolled_into_view
+         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+
+
 
 
 
