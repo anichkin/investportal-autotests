@@ -88,24 +88,38 @@ def test_tender(driver, base_url):
 
     with allure.step('3. Проверка элементов на карточке торгов'):
         with allure.step('Проверка наличия карты и раскрытия документов'):
-         map = page.get_visible_by_xpath(page.MAP)
-         page.get_clicable_by_xpath(page.DOCUMENT_BUTTON).click()
-         page.get_clicable_by_xpath(page.OBJECT_DOCUMENT).click()
-         map.location_once_scrolled_into_view
-         page.get_clicable_by_xpath(page.TENDER_DOCUMENT).click()
-         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+            map = page.get_visible_by_xpath(page.MAP)
+            try:
+                page.get_visible_by_xpath(page.DOCUMENT_BUTTON).location_once_scrolled_into_view
+                page.get_clicable_by_xpath(page.DOCUMENT_BUTTON).click()
+                page.get_visible_by_xpath(page.OBJECT_DOCUMENT).location_once_scrolled_into_view
+                page.get_clicable_by_xpath(page.OBJECT_DOCUMENT).click()
+                page.get_visible_by_xpath(page.TENDER_DOCUMENT).location_once_scrolled_into_view
+                page.get_clicable_by_xpath(page.TENDER_DOCUMENT).click()
+            except Exception:
+                page.get_visible_by_xpath(page.DOCUMENT_BUTTON_2).location_once_scrolled_into_view
+                page.get_clicable_by_xpath(page.DOCUMENT_BUTTON_2).click()
+                page.get_visible_by_xpath(page.OBJECT_DOCUMENT_2).location_once_scrolled_into_view
+                page.get_clicable_by_xpath(page.OBJECT_DOCUMENT_2).click()
+                page.get_visible_by_xpath(page.TENDER_DOCUMENT_2).location_once_scrolled_into_view
+                page.get_clicable_by_xpath(page.TENDER_DOCUMENT_2).click()
+            map.location_once_scrolled_into_view
+            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         with allure.step('Проверка блока информации о торгах'):
-         subject_tabs = page.get_visible_by_xpath(page.SUBJECT_TABS)
-         subject_tabs.location_once_scrolled_into_view
-         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+            subject_tabs = page.get_visible_by_xpath(page.SUBJECT_TABS)
+            subject_tabs.location_once_scrolled_into_view
+            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         with allure.step('Проверка блока похожих объектов'):
-         simular_objects = page.get_visible_by_xpath(page.SIMULAR_OBJECTS)
-         simular_objects.location_once_scrolled_into_view
-         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+            try:
+                simular_objects = page.get_visible_by_xpath(page.SIMULAR_OBJECTS)
+                simular_objects.location_once_scrolled_into_view
+                allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+            except Exception:
+                print('Блока похожих объектов нет')
         with allure.step('Проверка блока мероприятий'):
-         events = page.get_visible_by_xpath(page.EVENTS)
-         events.location_once_scrolled_into_view
-         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+            events = page.get_visible_by_xpath(page.EVENTS)
+            events.location_once_scrolled_into_view
+            allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 
 

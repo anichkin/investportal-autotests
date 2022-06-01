@@ -54,6 +54,7 @@ class LKPage(BasePage):
     SUPPORT_MEASURES_INFO_XPATH = '//*[@id="app"]/div[3]/div[2]/div/div/div[3]/div[1]/div[2]/div[2]/div[3]/div[3]/p'
     SUPPORT_MEASURES_INFO = 'У вас не подано ещё ни одной заявки.'
     MY_TENDERS_TAB = '//*[@id="app"]/div[3]/div[1]/div[2]/div/div[3]/div[2]/a'
+    APPLICATION_TAB = '//*[@id="app"]/div[3]/div[2]/div/div/div[3]/div[1]/a'
     HEADER_LK = '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[1]/div/span'
     EXIT = '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[2]/div[1]/div'
 
