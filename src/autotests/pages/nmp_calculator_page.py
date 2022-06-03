@@ -28,11 +28,11 @@ class NMPCalculator(BasePage):
     FIRST_CALC_NUMBER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div[2]/div[3]/div/div[4]/div/div[3]/div[2]/div'
     FIRST_CALC_NUMBER = '3'
     SECOND_CALC_NUMBER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div[2]/div[3]/div/div[4]/div/div[3]/div[4]/div'
-    SECOND_CALC_NUMBER = '269,7'
+    SECOND_CALC_NUMBER = '269.7'
     THIRD_CALC_NUMBER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div[2]/div[3]/div/div[4]/div/div[3]/div[6]/div'
-    THIRD_CALC_NUMBER = '354,7'
+    THIRD_CALC_NUMBER = '354.7'
     FORTH_CALC_NUMBER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div[2]/div[3]/div/div[4]/div/div[3]/div[8]/div'
-    FORTH_CALC_NUMBER = '202,3'
+    FORTH_CALC_NUMBER = '202.3'
 
 
 
