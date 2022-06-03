@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
+from datetime import datetime
 import allure
+import time
 
 
 
@@ -68,5 +70,6 @@ def test_failed_check(request):
         if request.node.rep_call.failed:
             driver = request.node.funcargs['driver']
             allure.attach(driver.get_screenshot_as_png(), name="Error")
+            webdriver.save_screenshot('/error_screenshots/error.png')
             print("executing test failed", request.node.nodeid)
 

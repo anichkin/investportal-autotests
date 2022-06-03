@@ -67,7 +67,11 @@ def test_tender(driver, base_url):
         all_object_navigation = page.get_visible_by_xpath(page.NAVIGATION)
         all_object_navigation.location_once_scrolled_into_view
         time.sleep(2)
-        page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
+        try:
+            page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
+        except Exception:
+            page.get_visible_by_xpath(page.ALL_OBJECT_BUTTON_XPATH)
+            page.get_clicable_by_xpath(page.ALL_OBJECT_BUTTON_XPATH).click()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 

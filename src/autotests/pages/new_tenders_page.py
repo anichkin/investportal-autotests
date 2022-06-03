@@ -39,6 +39,7 @@ class NewTendersPage(BasePage):
     FIRST_COLLAPSE_TENDER = '.uid-tenders-card:nth-child(1) .uid-tenders-card__subway'
     FIRST_SEARCH_RESULT_TENDER2 = '.uid-tenders-card:nth-child(3) > .uid-tenders-card__main'
     ALL_OBJECT_BUTTON = '.list:nth-child(2) .uid-btn > div'
+    ALL_OBJECT_BUTTON_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div/div/button'
     WIDE_FILTER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div/div/div/div[1]'
     WIDE_FILTER = 'Расширенный поиск'
     SQUARE = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1/span'
