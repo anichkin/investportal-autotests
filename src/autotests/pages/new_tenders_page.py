@@ -2,6 +2,7 @@ from typing import Iterable, List
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from .base_page import BasePage
+import time
 
 
 class Filter():
@@ -10,10 +11,12 @@ class Filter():
         self.page = page
         self.element = self.page.get_clicable_by_xpath(xpath)
         self.element.click()
+        time.sleep(1)
         self.labels = {}
         for elem in self.element.find_elements(By.TAG_NAME, 'label'):
             text = elem.find_element(By.XPATH, './span[2]').text
             self.labels[text] = elem.find_element(By.XPATH, './span[1]')
+        print(self.labels)
 
     def select(self, choices: List[str]) -> None:
         for choice in choices:
@@ -26,6 +29,7 @@ class NewTendersPage(BasePage):
     TITLE = 'Торги.Имущество - Инвестиционный портал Москвы'
     OBJECT_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[1]/div/div'
     TRADE_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/div'
+    SALE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[2]/div/div[2]/label[2]/span[2]'
     SEARCH_BUTTON = '.uid-btn_size_large > div'
     TENDER_AREA = '//div[@id="uid-portal"]/div/div/div[3]/div/h2'
     FIRST_NEW_TENDER = '.list:nth-child(3) .uid-tenders-card:nth-child(1) > .uid-tenders-card__main'
@@ -40,8 +44,8 @@ class NewTendersPage(BasePage):
     FIRST_SEARCH_RESULT_TENDER2 = '.uid-tenders-card:nth-child(3) > .uid-tenders-card__main'
     ALL_OBJECT_BUTTON = '.list:nth-child(2) .uid-btn > div'
     ALL_OBJECT_BUTTON_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div/div/button'
-    WIDE_FILTER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div/div/div/div[1]'
-    WIDE_FILTER = 'Расширенный поиск'
+    WIDE_FILTER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[1]/div/div/div[2]/div[1]'
+    WIDE_FILTER = 'Показать фильтр'
     SQUARE = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1/span'
     TENDER_NAME = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1/text()'
     MAP = '//*[@id="map"]'

@@ -45,10 +45,11 @@ def test_page(driver, base_url):
 
 
     with allure.step('3. Выбор параметров в быстром фильтре'):
-        page.select_object_types(['Квартира', 'Машино-место'])
+        page.select_object_types(['Квартира', 'Машино-место', 'Нежилые помещения'])
         page.select_trade_types(['Продажа','Аренда'])
         page.get_clicable_by_css(page.SEARCH_BUTTON).click()
         page.get_visible_by_xpath(page.WIDE_FILTER_XPATH)
+        assert page.get_visible_by_xpath(page.WIDE_FILTER_XPATH).text == page.WIDE_FILTER
         try:
             page.get_visible_by_css(page.FIRST_SEARCH_RESULT_TENDER1)
         except Exception:
