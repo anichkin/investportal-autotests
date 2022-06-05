@@ -47,7 +47,8 @@ def test_page(driver, base_url):
     with allure.step('3. Выбор параметров в быстром фильтре'):
         page.select_object_types(['Квартира', 'Машино-место', 'Нежилые помещения'])
         page.select_trade_types(['Продажа','Аренда'])
-        page.get_clicable_by_css(page.SEARCH_BUTTON).click()
+        search = page.get_clicable_by_css(page.SEARCH_BUTTON)
+        search.click()
         page.get_visible_by_xpath(page.WIDE_FILTER_XPATH)
         assert page.get_visible_by_xpath(page.WIDE_FILTER_XPATH).text == page.WIDE_FILTER
         try:
@@ -65,9 +66,10 @@ def test_tender(driver, base_url):
         page = NewTendersPage(driver, base_url)
         page.get()
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        time.sleep(2)
         all_object_navigation = page.get_visible_by_xpath(page.NAVIGATION)
         all_object_navigation.location_once_scrolled_into_view
-        time.sleep(2)
+        time.sleep(1)
         try:
             page.get_clicable_by_css(page.ALL_OBJECT_BUTTON).click()
         except Exception:

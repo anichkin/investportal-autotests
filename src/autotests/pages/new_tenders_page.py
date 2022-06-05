@@ -16,7 +16,6 @@ class Filter():
         for elem in self.element.find_elements(By.TAG_NAME, 'label'):
             text = elem.find_element(By.XPATH, './span[2]').text
             self.labels[text] = elem.find_element(By.XPATH, './span[1]')
-        print(self.labels)
 
     def select(self, choices: List[str]) -> None:
         for choice in choices:
