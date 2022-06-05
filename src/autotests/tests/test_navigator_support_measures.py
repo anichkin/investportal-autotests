@@ -38,7 +38,6 @@ def test_nmp_calculator(driver, base_url):
     with allure.step('1. Открыть страницу калькулятора'):
         page = NMPCalculator(driver, base_url)
         page.get()
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         assert page.get_visible_by_xpath(page.HEADER_XPATH).text == page.HEADER
         assert page.get_visible_by_xpath(page.SUBTITLE_XPATH).text == page.SUBTITLE
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")

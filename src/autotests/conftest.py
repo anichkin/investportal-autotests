@@ -77,4 +77,4 @@ def test_failed_check(request):
 def take_screenshot(driver, nodeid):
     time.sleep(1)
     file_name = f'{nodeid}_{datetime.today().strftime("%Y-%m-%d_%H:%M")}.png'.replace("/","_").replace("::","__")
-    driver.save_screenshot(file_name)
+    driver.save_screenshot('/var/lib/jenkins/workspace/Investmoscow/target/error_screenshots/'f'{file_name}')
