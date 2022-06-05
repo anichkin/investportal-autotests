@@ -58,3 +58,13 @@ class LKPage(BasePage):
     HEADER_LK = '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[1]/div/span'
     EXIT = '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[2]/div[1]/div'
 
+
+    def logout_from_lk(driver, base_url):
+        page = LKPage(driver, base_url)
+        page.get()
+        try:
+            page.get_clicable_by_xpath(page.HEADER_LK).click()
+        except Exception:
+            driver.refresh()
+            page.get_clicable_by_xpath(page.HEADER_LK).click()
+        page.get_clicable_by_xpath(page.EXIT).click()

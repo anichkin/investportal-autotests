@@ -1,7 +1,8 @@
 from autotests.pages.main_page import MainPage
 import allure
 from autotests.pages.LogoutPage import LogoutPage
-import time
+from autotests.pages.LKPage import LKPage
+
 
 
 
@@ -17,6 +18,11 @@ def test_authorization(driver, base_url):
         assert page.get_header_user_name() == page.HEADER_USER_NAME_TEXT
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         LogoutPage.logout_from_page(driver, base_url)
+        LKPage.logout_from_lk(driver, base_url)
+
+
+
+
 
 
 

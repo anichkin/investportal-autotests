@@ -61,18 +61,9 @@ def test_my_tenders(driver, base_url):
         page.get_clicable_by_xpath(page.MY_TENDERS_TAB).click()
         page.get_visible_by_xpath(page.APPLICATION_TAB)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+        page.logout_from_lk(driver,base_url)
 
-def test_logout(driver, base_url):
-    page = LKPage(driver, base_url)
-    page.get()
-    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-    try:
-        page.get_clicable_by_xpath(page.HEADER_LK).click()
-    except Exception:
-        driver.refresh()
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-        page.get_clicable_by_xpath(page.HEADER_LK).click()
-    page.get_clicable_by_xpath(page.EXIT).click()
+
 
 
 
