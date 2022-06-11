@@ -19,6 +19,7 @@ class MainPage(BasePage):
     PASSWORD = '#eZam5rK'
     HEADER_USER_NAME = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[1]/div/span')
     HEADER_USER_NAME_TEXT = 'Авторизация Т.'
+    NOTIFICATION = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div[1]/div[1]/div')
     LOGOUT = (By.XPATH, '//*[@id="logout"]')
     HEADER_USER_NAME_LOGOUT = (By.CLASS_NAME, 'header_user_name auth-user-name auth-user-name_hidden')
 
@@ -39,6 +40,9 @@ class MainPage(BasePage):
 
         header = WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(MainPage.HEADER_USER_NAME))
         return header.text
+
+    def authorization_check(self):
+        check = WebDriverWait(self.driver, 30).until((EC.visibility_of_element_located(MainPage.NOTIFICATION)))
 
     def go_to_online_services_page(self):
         '''Функция перехода в раздел Онлайн сервисы'''

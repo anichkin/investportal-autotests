@@ -44,6 +44,7 @@ class NewTendersPage(BasePage):
     ALL_OBJECT_BUTTON = '.list:nth-child(2) .uid-btn > div'
     ALL_OBJECT_BUTTON_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div/div/button'
     WIDE_FILTER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[1]/div/div/div[2]/div[1]'
+    WIDE_FILTER_XPATH_2 = '//*[@id="uid-portal"]/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[1]/div'
     WIDE_FILTER = 'Показать фильтр'
     SQUARE = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1/span'
     TENDER_NAME = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/h1/text()'

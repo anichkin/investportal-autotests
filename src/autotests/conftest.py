@@ -6,6 +6,7 @@ import time
 
 
 
+
 def pytest_addoption(parser):
     parser.addoption(
         '--base_url',
@@ -21,14 +22,30 @@ def pytest_addoption(parser):
              'https://web3.investmoscow.ru, '+
              'https://web4.investmoscow.ru, '
     )
+    parser.addoption(
+        '--dgp_base_url',
+        action='store',
+        default='https://dgp.investmoscow.ru/',
+        help='base_url, available options: ' +
+             'https://web1dgp.investmoscow.ru/, ' +
+             'https://web2dgp.investmoscow.ru/, ' +
+             'https://web3dgp.investmoscow.ru/, '
+
+    )
+
+
 
 
 @pytest.fixture(scope='session')
 def base_url(request):
     return request.config.getoption("--base_url")
 
-
 @pytest.fixture(scope='session')
+def dgp_base_url(request):
+    return request.config.getoption("--dgp_base_url")
+
+
+@pytest.fixture(scope='function')
 def driver():
     options = webdriver.ChromeOptions()
     user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36'
@@ -46,7 +63,7 @@ def driver():
     #    options.add_experimental_option("excludeSwitches", ["enable-automation"])
     driver = webdriver.Chrome(options=options)
     yield driver
-    driver.close()
+    driver.quit()
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
