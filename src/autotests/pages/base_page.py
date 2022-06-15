@@ -39,3 +39,8 @@ class BasePage:
         return WebDriverWait(self.driver, self.__class__.WAIT_TIME).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, css))
         )
+
+    def get_clicable_by_name(self, name: str) -> WebElement:
+        return WebDriverWait(self.driver, self.__class__.WAIT_TIME).until(
+            EC.element_to_be_clickable((By.NAME, name))
+        )
