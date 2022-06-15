@@ -4,24 +4,16 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 import allure
 
 
-
-
-
-def test_dgp_authorization(driver, dgp_base_url):
-    """тест авторизации"""
-    page = DGPMainPage(driver, dgp_base_url)
-    page.get()
-    page.login()
-
-def test_dashboard(driver, dgp_base_url):
+def test_authorization_and_dashboard(driver, dgp_base_url):
     """Проверка элементов дашборда"""
-    with allure.step('Проверка наличия элементов на странице'):
+    with allure.step('1 Авторизация в дгп'):
         page = DGPMainPage(driver, dgp_base_url)
         page.get()
+        page.login()
+    with allure.step('2. Проверка элементов дашборда'):
         assert page.get_visible_by_xpath(page.TRADES_SUBSYSTEM_XPATH).text == page.TRADES_SUBSYSTEM
         assert page.get_visible_by_xpath(page.LPO_SUBSYSTEM_XPATH).text == page.LPO_SUBSYSTEM
         assert page.get_visible_by_xpath(page.SUBSIDY_SUBSYSTEM_XPATH).text == page.SUBSIDY_SUBSYSTEM

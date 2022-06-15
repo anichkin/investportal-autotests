@@ -84,7 +84,8 @@ def test_tender(driver, base_url):
             time.sleep(2)
             page.get_visible_by_css(page.FIRST_SEARCH_RESULT_TENDER1).click()
             page.get_clicable_by_css(page.COLLAPSE_TENDERS).click()
-            page.get_clicable_by_css(page.FIRST_COLLAPSE_TENDER).click()
+            tender = page.get_clicable_by_css(page.FIRST_COLLAPSE_TENDER).location_once_scrolled_into_view
+            tender.click()
         except Exception:
             driver.execute_script("window.scrollTo(document.body.scrollHeight, 0);")
             time.sleep(2)

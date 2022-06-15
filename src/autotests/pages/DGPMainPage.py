@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from autotests.pages.base_page import BasePage
+import allure
 
 class DGPMainPage(BasePage):
     PATH = ''
@@ -32,6 +33,7 @@ class DGPMainPage(BasePage):
         password_input = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(DGPMainPage.PASSWORD_INPUT))
         password_input.send_keys(DGPMainPage.PASSWORD)
         enter = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(DGPMainPage.ENTER_BUTTON))
+        allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
         enter.click()
 
 

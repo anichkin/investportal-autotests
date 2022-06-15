@@ -39,7 +39,7 @@ class NewTendersPage(BasePage):
     THIRD_POPULAR_TENDER = '.list:nth-child(4) .uid-tenders-card:nth-child(3) > .uid-tenders-card__main'
     FIRST_SEARCH_RESULT_TENDER1 = '.uid-mb-0 .uid-tenders-card__main-left-col'
     COLLAPSE_TENDERS = '.uid-mb-40:nth-child(3) > .uid-group-card__collapse span'
-    FIRST_COLLAPSE_TENDER = '.uid-tenders-card:nth-child(1) .uid-tenders-card__subway'
+    FIRST_COLLAPSE_TENDER = '..uid-group-card__body > .uid-tenders-card:nth-child(1) .uid-tenders-card__main-left-col'
     FIRST_SEARCH_RESULT_TENDER2 = '.uid-tenders-card:nth-child(3) > .uid-tenders-card__main'
     ALL_OBJECT_BUTTON = '.list:nth-child(2) .uid-btn > div'
     ALL_OBJECT_BUTTON_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[2]/div[2]/div/div/button'
