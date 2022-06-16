@@ -10,7 +10,6 @@ def test_open_subject_registry(driver, dgp_base_url):
         page = DGPMainPage(driver, dgp_base_url)
         page.get()
         page.login()
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         time.sleep(1)
     with allure.step('2. Открытие страницы реестра субъектов'):
         page = DGPSubjectReestrPage(driver, dgp_base_url)

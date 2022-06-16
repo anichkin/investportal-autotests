@@ -9,8 +9,7 @@ def test_open_page(driver, dgp_base_url):
         page = DGPMainPage(driver, dgp_base_url)
         page.get()
         page.login()
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-        time.sleep(2)
+        time.sleep(1)
     with allure.step('2. Открытие раздела Мос инвестора'):
         page = DGPMosInvestorPage(driver, dgp_base_url)
         page.get()
