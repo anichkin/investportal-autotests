@@ -1,9 +1,5 @@
-from autotests.pages.main_page import MainPage
+from autotests.pages.PortalPages.main_page import MainPage
 import allure
-from autotests.pages.LogoutPage import LogoutPage
-from autotests.pages.LKPage import LKPage
-
-
 
 
 def test_authorization(driver, base_url):

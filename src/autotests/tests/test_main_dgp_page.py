@@ -1,9 +1,4 @@
-import pytest
-from autotests.pages.DGPMainPage import DGPMainPage
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from autotests.pages.DGPPages.DGPMainPage import DGPMainPage
 import allure
 
 

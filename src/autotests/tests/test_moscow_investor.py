@@ -1,9 +1,5 @@
-from autotests.pages.MoscowInvestorPage import MoscowInvestorPage
+from autotests.pages.PortalPages.MoscowInvestorPage import MoscowInvestorPage
 import allure
-import time
-from autotests.pages.base_page import BasePage
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 
 
 def test_main_page(driver, base_url):

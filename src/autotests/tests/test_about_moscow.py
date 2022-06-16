@@ -1,8 +1,4 @@
-from autotests.pages.about_moscow_page import AboutMoscowPage
-from autotests.pages.moscow_in_numbers_page import MoscowInNumberPage
-from autotests.pages.podpiska_inwest_digest_page import PodpiskaInwestDigestPage
-from autotests.pages.investment_map_page import InvestmentMapPage
-from autotests.pages.projects_page import ProjectsPage
+from autotests.pages.PortalPages.about_moscow_page import AboutMoscowPage
 
 
 def test_check_economics_info(driver, base_url):

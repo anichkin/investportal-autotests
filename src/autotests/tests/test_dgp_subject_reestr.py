@@ -1,6 +1,6 @@
-from autotests.pages.DGPSubjectReestrPage import DGPSubjectReestrPage
+from autotests.pages.DGPPages.DGPSubjectReestrPage import DGPSubjectReestrPage
 import  allure
-from autotests.pages.DGPMainPage import DGPMainPage
+from autotests.pages.DGPPages.DGPMainPage import DGPMainPage
 import time
 
 

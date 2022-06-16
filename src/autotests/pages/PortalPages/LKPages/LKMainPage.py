@@ -1,4 +1,4 @@
-from .base_page import BasePage
+from autotests.pages.base_page import BasePage
 
 
 class LKPage(BasePage):

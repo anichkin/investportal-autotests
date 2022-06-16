@@ -1,6 +1,5 @@
-from autotests.pages.online_services_page import OnlineServicesPage
+from autotests.pages.PortalPages.online_services_page import OnlineServicesPage
 import allure
-import time
 
 
 def test_online_services(driver, base_url, block=OnlineServicesPage.HEADER_XPATH):
@@ -12,6 +11,7 @@ def test_online_services(driver, base_url, block=OnlineServicesPage.HEADER_XPATH
         assert page.get_visible_by_xpath(page.HEADER_XPATH).text == page.HEADER
         assert page.get_visible_by_xpath(page.SUBTITLE_XPATH).text == page.SUBTITLE
         page.get_visible_by_xpath(page.SCROLL_BAR)
+
 
 def test_direct_connection(driver, base_url, block=OnlineServicesPage.DIRECT_CONNECTION):
     with allure.step('1. Перейти к блоку Прямая связь'):

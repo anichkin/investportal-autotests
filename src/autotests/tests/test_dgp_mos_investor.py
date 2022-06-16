@@ -1,6 +1,6 @@
-from autotests.pages.DGPMosInvestorPage import DGPMosInvestorPage
+from autotests.pages.DGPPages.DGPMosInvestorPage import DGPMosInvestorPage
 import allure
-from autotests.pages.DGPMainPage import DGPMainPage
+from autotests.pages.DGPPages.DGPMainPage import DGPMainPage
 import time
 
 def test_open_page(driver, dgp_base_url):

@@ -1,4 +1,4 @@
-from autotests.pages.NewInvestMapPage import NewInvestMapPage
+from autotests.pages.PortalPages.NewInvestMapPage import NewInvestMapPage
 import allure
 
 def test_open_map(driver, base_url):

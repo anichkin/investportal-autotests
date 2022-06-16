@@ -1,5 +1,4 @@
-
-from autotests.pages import NewTendersPage
+from autotests.pages.PortalPages.new_tenders_page import NewTendersPage
 import allure
 import time
 

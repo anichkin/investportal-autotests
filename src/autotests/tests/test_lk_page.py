@@ -1,8 +1,8 @@
-from autotests.pages.LKPage import LKPage
-from autotests.pages.main_page import MainPage
+from autotests.pages.PortalPages.LKPages.LKMainPage import LKPage
+from autotests.pages.PortalPages.main_page import MainPage
+from autotests.pages.PortalPages.LKPages.MyTenderPage import MyTenderPage
 import allure
 import time
-
 
 
 def test_main_lk_page(driver, base_url):
@@ -26,8 +26,9 @@ def test_main_lk_page(driver, base_url):
         assert main_lk.get_visible_by_xpath(main_lk.BUILDING_XPATH).text == main_lk.BUILDING
         main_lk.get_visible_by_xpath(main_lk.CALENDAR)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-        main_lk.get_visible_by_xpath(main_lk.COMPARE_VIDGET_XPATH).location_once_scrolled_into_view
-        assert main_lk.get_visible_by_xpath(main_lk.COMPARE_VIDGET_XPATH).text == main_lk.COMPARE_VIDGET
+        compare_vidget = main_lk.get_visible_by_xpath(main_lk.COMPARE_VIDGET_XPATH)
+        compare_vidget.location_once_scrolled_into_view
+        assert compare_vidget.text == main_lk.COMPARE_VIDGET
         assert main_lk.get_visible_by_xpath(main_lk.COMPARE_ROOM_XPATH).text == main_lk.COMPARE_ROOM
         assert main_lk.get_visible_by_xpath(main_lk.COMPARE_CAR_PLACE_XPATH).text == main_lk.COMPARE_CAR_PLACE
         assert main_lk.get_visible_by_xpath(main_lk.COMPARE_NON_CAPITAL_XPATH).text == main_lk.COMPARE_NON_CAPITAL
@@ -37,20 +38,22 @@ def test_main_lk_page(driver, base_url):
         main_lk.get_clicable_by_xpath(main_lk.FILTER_BUTTON)
         main_lk.get_clicable_by_xpath(main_lk.DELETE_FILTER_BUTTON)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-        main_lk.get_visible_by_xpath(main_lk.APPLICATION_XPATH).location_once_scrolled_into_view
-        assert main_lk.get_visible_by_xpath(main_lk.APPLICATION_XPATH).text == main_lk.APPLICATION
+        applications = main_lk.get_visible_by_xpath(main_lk.APPLICATION_XPATH)
+        applications.location_once_scrolled_into_view
+        assert applications.text == main_lk.APPLICATION
         assert main_lk.get_visible_by_xpath(main_lk.APPLICATION_INFO_XPATH).text == main_lk.APPLICATION_INFO
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
     with allure.step('3. Проверить наличие виджетов блока Мои заявки'):
-        main_lk.get_visible_by_xpath(main_lk.MY_APPLICATIONS_XPATH).location_once_scrolled_into_view
-        main_lk.get_visible_by_xpath(main_lk.MY_APPLICATIONS_XPATH).text == main_lk.MY_APPLICATIONS
-        main_lk.get_visible_by_xpath(main_lk.CITY_TENDERS_XPATH).text == main_lk.CITY_TENDERS
-        main_lk.get_visible_by_xpath(main_lk.CITY_TENDERS_INFO_XPATH).text == main_lk.CITY_TENDERS_INFO
-        main_lk.get_visible_by_xpath(main_lk.SERVICES_XPATH).text == main_lk.SERVICES
-        main_lk.get_visible_by_xpath(main_lk.SERVICES_INFO_XPATH).text == main_lk.SERVICES_INFO
-        main_lk.get_visible_by_xpath(main_lk.SUPPORT_MEASURES_XPATH).text == main_lk.SUPPORT_MEASURES
-        main_lk.get_visible_by_xpath(main_lk.SUPPORT_MEASURES_INFO_XPATH).text == main_lk.SUPPORT_MEASURES_INFO
+        my_applications = main_lk.get_visible_by_xpath(main_lk.MY_APPLICATIONS_XPATH)
+        my_applications.location_once_scrolled_into_view
+        my_applications.text == main_lk.MY_APPLICATIONS
+        assert main_lk.get_visible_by_xpath(main_lk.CITY_TENDERS_XPATH).text == main_lk.CITY_TENDERS
+        assert main_lk.get_visible_by_xpath(main_lk.CITY_TENDERS_INFO_XPATH).text == main_lk.CITY_TENDERS_INFO
+        assert main_lk.get_visible_by_xpath(main_lk.SERVICES_XPATH).text == main_lk.SERVICES
+        assert main_lk.get_visible_by_xpath(main_lk.SERVICES_INFO_XPATH).text == main_lk.SERVICES_INFO
+        assert main_lk.get_visible_by_xpath(main_lk.SUPPORT_MEASURES_XPATH).text == main_lk.SUPPORT_MEASURES
+        assert main_lk.get_visible_by_xpath(main_lk.SUPPORT_MEASURES_INFO_XPATH).text == main_lk.SUPPORT_MEASURES_INFO
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 
@@ -60,12 +63,58 @@ def test_my_tenders(driver, base_url):
         main_lk.login()
         main_lk.authorization_check()
 
-    with allure.step('2. Открыть вкладку Мои торги'):
-        tender_tab_page = LKPage(driver, base_url)
-        tender_tab_page.get()
-        tender_tab_page.get_clicable_by_xpath(tender_tab_page.MY_TENDERS_TAB).click()
-        tender_tab_page.get_visible_by_xpath(tender_tab_page.APPLICATION_TAB)
+    with allure.step('2. Открыть вкладку Мои торги - Заявки'):
+        page = MyTenderPage(driver, base_url)
+        page.get()
+        assert page.get_visible_by_xpath(page.APPLICATION_TAB_XPATH).text == page.APPLICATION_TAB
+        contract_tab = page.get_visible_by_xpath(page.CONTRACT_TAB_XPATH)
+        assert contract_tab.text == page.CONTRACT_TAB
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+    with allure.step('3. Открыть вкладку Договоры, проверить количество'):
+        contract_tab.click()
+        contract_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        assert contract_amount.text == page.CONTRACT_AMOUNT
+        favorite_tab = page.get_visible_by_xpath(page.FAVORITE_XPATH)
+        assert favorite_tab.text == page.FAVORITE
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+    with allure.step('4. Открыть вкладку Избранные торги, проверить первые торги и количество'):
+        favorite_tab.click()
+        page.get_visible_by_xpath(page.FIRST_FAVORITE_TENDER)
+        tender_name = page.get_visible_by_xpath(page.TENDER_NAME_XPATH)
+        assert tender_name.text == page.TENDER_NAME
+        favorite_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        assert favorite_amount.text == page.FAVORITE_AMOUNT
+        my_filters_tab = page.get_visible_by_xpath(page.MY_FILTERS_TAB_XPATH)
+        assert my_filters_tab.text == page.MY_FILTERS_TAB
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+    with allure.step('5. Открыть вкладку Мои фильтры, проверить первый фильтр и количество'):
+        my_filters_tab.click()
+        page.get_visible_by_xpath(page.FIRST_FILTER)
+        filter_name = page.get_visible_by_xpath(page.FIRST_FILTER_NAME_XPATH)
+        assert filter_name.text == page.FIRST_FILTER_NAME
+        filters_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        assert filters_amount.text == page.FILTERS_AMOUNT
+        compare_tab = page.get_visible_by_xpath(page.COMPARE_TAB_XPATH)
+        assert compare_tab.text == page.COMPARE_TAB
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+    with allure.step('6. Открыть вкладку Сравнение объектов, проверить первый объект и количество'):
+        compare_tab.click()
+        page.get_visible_by_xpath(page.COMPARE_AREA)
+        first_tender_name = page.get_visible_by_xpath(page.FIRST_TENDER_NAME_XPATH)
+        assert first_tender_name.text == page.FIRST_TENDER_NAME
+        compare_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        assert compare_amount.text == page.COMPARE_AMOUNT
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
+
+
+
+
+
+
+
+
+
+
 
 
 

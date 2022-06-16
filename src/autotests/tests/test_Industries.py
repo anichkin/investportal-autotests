@@ -1,6 +1,5 @@
 import pytest
-from autotests.pages.IndustriesPage import IndustriesPage
-from selenium.webdriver.common.by import By
+from autotests.pages.PortalPages.IndustriesPage import IndustriesPage
 import allure
 
 

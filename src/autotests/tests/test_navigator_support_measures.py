@@ -1,9 +1,7 @@
-from autotests.pages.navigator_support_measures_page import NMPPage
+from autotests.pages.PortalPages.NMPPages.navigator_support_measures_page import NMPPage
 import allure
 import time
-from autotests.pages.nmp_calculator_page import NMPCalculator
-from selenium.webdriver.support.ui import Select
-
+from autotests.pages.PortalPages.NMPPages.nmp_calculator_page import NMPCalculator
 
 
 def test_open_page(driver, base_url):

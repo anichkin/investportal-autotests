@@ -1,6 +1,6 @@
-from autotests.pages.MTSPage import MTSPage
-from autotests.pages.MTSMembersPage import MTSMembersPage
-from autotests.pages.MTSProgramPage import MTSProgramPage
+from autotests.pages.PortalPages.MTSPages import MTSPage
+from autotests.pages.PortalPages.MTSPages import MTSMembersPage
+from autotests.pages.PortalPages.MTSPages import MTSProgramPage
 import allure
 
 def test_mts_page(driver, base_url):
