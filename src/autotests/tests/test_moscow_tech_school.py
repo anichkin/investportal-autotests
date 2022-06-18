@@ -4,7 +4,10 @@ from autotests.pages.PortalPages.MTSPages.MTSProgramPage import MTSProgramPage
 import allure
 
 def test_mts_page(driver, base_url):
-    """Открытие главной страницы раздела МТШ"""
+    """Открытие информационной страницы раздела МТШ, проверка элементов на странице
+        Переход на странице Участникам, проверка элементов на странице
+        Переход на страницу Образовательные программы мтш, проверка элементов на странице
+    """
     with allure.step('1. Открыть информационную страницу МТШ, проверить элементы на странице'):
         page = MTSPage(driver, base_url)
         page.get()
@@ -31,7 +34,7 @@ def test_mts_page(driver, base_url):
         page.get_visible_by_xpath(page.ROLE3)
         page.get_visible_by_xpath(page.ROLE4)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-    with allure.step('5. Переход на страницу программ'):
+    with allure.step('5. Переход на страницу Образовательные программы МТШ'):
         page.get_clicable_by_xpath(page.PROGRAM_BUTTON).click()
         page = MTSProgramPage(driver, base_url)
         header = page.get_visible_by_xpath(page.HEADER_XPATH)

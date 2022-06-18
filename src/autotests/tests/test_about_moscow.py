@@ -1,4 +1,5 @@
 from autotests.pages.PortalPages.about_moscow_page import AboutMoscowPage
+import allure
 
 
 def test_check_economics_info(driver, base_url):
@@ -7,6 +8,7 @@ def test_check_economics_info(driver, base_url):
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.ECONOMICS['tab'])
     assert about_moscow.check_info(AboutMoscowPage.ECONOMICS['info'])
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 # def test_check_investments_info(driver, base_url):
 #     '''Проверка перехода в "Инвестиции" и наличие информации'''
@@ -22,6 +24,7 @@ def test_check_finance_info(driver, base_url):
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.FINANCE['tab'])
     assert about_moscow.check_info(AboutMoscowPage.FINANCE['info'])
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 def test_check_business_info(driver, base_url):
     '''Проверка перехода в "Условия для бизнеса" и наличие информации'''
@@ -29,6 +32,7 @@ def test_check_business_info(driver, base_url):
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.BUSINESS['tab'])
     assert about_moscow.check_info(AboutMoscowPage.BUSINESS['info'])
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 def test_check_transport_info(driver, base_url):
     '''Проверка перехода в "Транспорт" и наличие информации'''
@@ -37,6 +41,7 @@ def test_check_transport_info(driver, base_url):
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.TRANSPORT['tab'])
     assert about_moscow.check_info(AboutMoscowPage.TRANSPORT['info'])
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 def test_check_lives_info(driver, base_url):
     '''Проверка перехода в "Качество жизни" и наличие информации'''
@@ -45,6 +50,7 @@ def test_check_lives_info(driver, base_url):
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.LIVES['tab'])
     assert about_moscow.check_info(AboutMoscowPage.LIVES['info'])
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 def test_check_ecology_info(driver, base_url):
     '''Проверка перехода в "Экология" и наличие информации'''
@@ -53,6 +59,7 @@ def test_check_ecology_info(driver, base_url):
     about_moscow.get()
     assert about_moscow.check_tab(AboutMoscowPage.ECOLOGY['tab'])
     assert about_moscow.check_info(AboutMoscowPage.ECOLOGY['info'])
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 
 #def test_check_details(driver, base_url):

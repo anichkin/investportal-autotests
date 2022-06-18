@@ -3,6 +3,9 @@ import allure
 
 
 def test_main_page(driver, base_url):
+    """Проверка загрузки страницы Московский инвестор
+        Проверка наличия основных заголовков и элементов
+        Частичная проверка категорий классификатора"""
     with allure.step('1. Открытие страницы Московский инвестор'):
         page = MoscowInvestorPage.open_mos_investor_page(driver, base_url)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")

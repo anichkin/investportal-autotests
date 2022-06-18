@@ -3,6 +3,7 @@ import allure
 
 
 def test_authorization(driver, base_url):
+    """Проверка авторизации на портале"""
     with allure.step('1. Открытие главной страницы портала'):
         page = MainPage.open_main_page(driver, base_url)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")

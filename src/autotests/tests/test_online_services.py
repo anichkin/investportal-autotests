@@ -3,6 +3,8 @@ import allure
 
 
 def test_online_services(driver, base_url, block=OnlineServicesPage.HEADER_XPATH):
+    """Открыть страницу онлайн-сервисов
+        Проверка верхних заголовком на странице"""
     with allure.step('1. Открыть страницу онлайн сервисов'):
         page = OnlineServicesPage.open_online_services_page(driver, base_url, block)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
@@ -14,6 +16,7 @@ def test_online_services(driver, base_url, block=OnlineServicesPage.HEADER_XPATH
 
 
 def test_direct_connection(driver, base_url, block=OnlineServicesPage.DIRECT_CONNECTION):
+    """Проверка блока Прямая связь на странице онлайн-сервисов"""
     with allure.step('1. Перейти к блоку Прямая связь'):
         page = OnlineServicesPage.open_online_services_page(driver, base_url, block)
         page.get_clicable_by_css(page.DIRECT_CONNECTION).click()
@@ -43,6 +46,7 @@ def test_direct_connection(driver, base_url, block=OnlineServicesPage.DIRECT_CON
             assert page.get_clicable_by_xpath(page.INFORM_KIOSK_BUTTON_XPATH).text == page.INFORM_KIOSK_BUTTON
 
 def test_services(driver, base_url, block = OnlineServicesPage.SERVICES):
+    """Проверка блока Услуги на странице онлайн-сервисов"""
     with allure.step('1. Перейти к блоку Услуги'):
         page = OnlineServicesPage.open_online_services_page(driver, base_url, block)
         page.get_clicable_by_css(page.SERVICES).click()
