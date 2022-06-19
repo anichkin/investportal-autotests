@@ -35,7 +35,7 @@ def test_mts_page(driver, base_url):
         page.get_visible_by_xpath(page.ROLE4)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('5. Переход на страницу Образовательные программы МТШ'):
-        button = page.get_clicable_by_xpath(page.PROGRAM_BUTTON).click()
+        button = page.get_clicable_by_xpath(page.PROGRAM_BUTTON)
         button.click()
         page = MTSProgramPage(driver, base_url)
         header = page.get_visible_by_xpath(page.HEADER_XPATH)
