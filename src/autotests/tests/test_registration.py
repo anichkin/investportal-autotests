@@ -51,7 +51,7 @@ def test_delete_account(driver, base_url):
     with allure.step('2. Поиск аккаунта в умбраке'):
         search = page.get_visible_by_xpath_long(page.SEARCH_XPATH)
         search.send_keys(RegistrationPage.EMAIL)
-        search_result = page.get_visible_by_xpath(page.SEARCH_RESULT_XPATH)
+        search_result = page.get_visible_by_xpath_long(page.SEARCH_RESULT_XPATH)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('3. Переход в запись об аккаунте и удаление аккаунта'):
         search_result.click()
@@ -61,12 +61,12 @@ def test_delete_account(driver, base_url):
         action.click()
         delete = page.get_clicable_by_xpath(page.DELETE_BUTTON)
         delete.click()
-        check = page.get_visible_by_xpath(page.CHECK_ACCOUNT)
+        check = page.get_visible_by_xpath_long(page.CHECK_ACCOUNT)
         assert check.text == RegistrationPage.EMAIL
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         accept_delete = page.get_clicable_by_xpath(page.ACCEPT_DELETE_BUTTON)
         accept_delete.click()
-        all_members = page.get_visible_by_xpath(page.ALL_MEMBERS_XPATH)
+        all_members = page.get_visible_by_xpath_long(page.ALL_MEMBERS_XPATH)
         assert all_members.text == page.ALL_MEMBERS
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
