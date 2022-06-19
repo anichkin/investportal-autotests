@@ -9,6 +9,7 @@ class BasePage:
 
     PATH=''
     WAIT_TIME = 10
+    LONG_WAIT_TIME = 20
 
     def __init__(self, driver, base_url):
         self.driver = driver
@@ -27,6 +28,11 @@ class BasePage:
             EC.visibility_of_element_located((By.XPATH, xpath))
         )
 
+    def get_visible_by_xpath_long(self, xpath: str) -> WebElement:
+        return WebDriverWait(self.driver, self.__class__.LONG_WAIT_TIME).until(
+            EC.element_to_be_clickable((By.XPATH, xpath))
+        )
+
     def get_visible_by_css(self, css: str) -> WebElement:
         return WebDriverWait(self.driver, self.__class__.WAIT_TIME).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, css))
@@ -36,6 +42,7 @@ class BasePage:
         return WebDriverWait(self.driver, self.__class__.WAIT_TIME).until(
             EC.element_to_be_clickable((By.XPATH, xpath))
         )
+
 
     def get_clicable_by_css(self, css: str) -> WebElement:
         return WebDriverWait(self.driver, self.__class__.WAIT_TIME).until(
