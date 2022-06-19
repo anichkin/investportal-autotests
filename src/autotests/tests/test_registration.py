@@ -56,8 +56,8 @@ def test_delete_account(driver, base_url):
     with allure.step('3. Переход в запись об аккаунте и удаление аккаунта'):
         search_result.click()
         page.umbraco_authorization()
-        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         action = page.get_clicable_by_xpath(page.ACTION_BUTTON)
+        allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         action.click()
         delete = page.get_clicable_by_xpath(page.DELETE_BUTTON)
         delete.click()
