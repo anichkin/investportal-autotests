@@ -22,6 +22,10 @@ def test_mts_page(driver, base_url):
         button = page.get_clicable_by_xpath(page.MEMBERS_BUTTON)
         button.click()
         page = MTSMembersPage(driver, base_url)
+        try:
+            assert page.title == page.TITLE
+        except Exception:
+            button.click()
         header = page.get_visible_by_xpath(page.HEADER_XPATH)
         assert header.text == page.HEADER
         assert page.get_visible_by_xpath(page.SUBTITLE_XPATH).text == page.SUBTITLE
@@ -39,6 +43,10 @@ def test_mts_page(driver, base_url):
         button = page.get_clicable_by_xpath(page.PROGRAM_BUTTON)
         button.click()
         page = MTSProgramPage(driver, base_url)
+        try:
+            assert page.title == page.TITLE
+        except Exception:
+            button.click()
         header = page.get_visible_by_xpath(page.HEADER_XPATH)
         assert header.text == page.HEADER
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")

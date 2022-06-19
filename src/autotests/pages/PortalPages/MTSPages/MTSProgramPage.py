@@ -2,6 +2,7 @@ from autotests.pages.base_page import BasePage
 
 class MTSProgramPage(BasePage):
     PATH = '/moscow-technical-school/programs'
+    TITLE = 'Программы МТШ - Инвестиционный портал Москвы'
     HEADER_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[3]/div[1]/div/div'
     HEADER = 'ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ МТШ'
     SUBTITLE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[3]/div[4]/div/div[1]/div[1]'
