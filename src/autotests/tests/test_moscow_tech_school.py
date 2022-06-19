@@ -22,7 +22,8 @@ def test_mts_page(driver, base_url):
         button = page.get_clicable_by_xpath(page.MEMBERS_BUTTON)
         button.click()
         page = MTSMembersPage(driver, base_url)
-        assert page.get_visible_by_xpath(page.HEADER_XPATH).text == page.HEADER
+        header = page.get_visible_by_xpath(page.HEADER_XPATH)
+        assert header.text == page.HEADER
         assert page.get_visible_by_xpath(page.SUBTITLE_XPATH).text == page.SUBTITLE
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('4. Проверка блока РОЛИ И ЗАДАЧИ УЧАСТНИКОВ ЭКСПЕРТНОГО СОВЕТА'):
