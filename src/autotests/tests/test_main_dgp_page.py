@@ -3,7 +3,7 @@ import allure
 
 
 def test_authorization_and_dashboard(driver, dgp_base_url):
-    """Проверка элементов дашборда"""
+    """Проверка элементов1 дашборда"""
     with allure.step('1 Авторизация в дгп'):
         page = DGPMainPage(driver, dgp_base_url)
         page.get()
