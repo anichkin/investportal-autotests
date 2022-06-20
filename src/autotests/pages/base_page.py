@@ -9,7 +9,7 @@ class BasePage:
 
     PATH=''
     WAIT_TIME = 10
-    LONG_WAIT_TIME = 20
+    LONG_WAIT_TIME = 30
 
     def __init__(self, driver, base_url):
         self.driver = driver
@@ -40,6 +40,11 @@ class BasePage:
 
     def get_clicable_by_xpath(self, xpath: str) -> WebElement:
         return WebDriverWait(self.driver, self.__class__.WAIT_TIME).until(
+            EC.element_to_be_clickable((By.XPATH, xpath))
+        )
+
+    def get_clicable_by_xpath_long(self, xpath: str) -> WebElement:
+        return WebDriverWait(self.driver, self.__class__.LONG_WAIT_TIME).until(
             EC.element_to_be_clickable((By.XPATH, xpath))
         )
 

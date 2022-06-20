@@ -56,15 +56,15 @@ def test_delete_account(driver, base_url):
     with allure.step('3. Переход в запись об аккаунте и удаление аккаунта'):
         search_result.click()
         page.umbraco_authorization()
-        action = page.get_clicable_by_xpath(page.ACTION_BUTTON)
+        action = page.get_clicable_by_xpath_long(page.ACTION_BUTTON)
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
         action.click()
-        delete = page.get_clicable_by_xpath(page.DELETE_BUTTON)
+        delete = page.get_clicable_by_xpath_long(page.DELETE_BUTTON)
         delete.click()
         check = page.get_visible_by_xpath_long(page.CHECK_ACCOUNT)
         assert check.text == RegistrationPage.EMAIL
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
-        accept_delete = page.get_clicable_by_xpath(page.ACCEPT_DELETE_BUTTON)
+        accept_delete = page.get_clicable_by_xpath_long(page.ACCEPT_DELETE_BUTTON)
         accept_delete.click()
         all_members = page.get_visible_by_xpath_long(page.ALL_MEMBERS_XPATH)
         assert all_members.text == page.ALL_MEMBERS
