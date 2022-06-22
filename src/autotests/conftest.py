@@ -6,8 +6,10 @@ import time
 
 
 
-
 def pytest_addoption(parser):
+    """По умолчанию тесты запускаются на проме
+    Для запуска с другим адресом надо вводить команду:
+    pytest.exe src\autotests\tests --base_url https://investmoscow.upt24.ru"""
     parser.addoption(
         '--base_url',
         action='store',
@@ -83,7 +85,6 @@ def driver():
     #    options.add_experimental_option("excludeSwitches", ["enable-automation"])
     driver = webdriver.Chrome(options=options)
     yield driver
-    driver.quit()
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -109,6 +110,7 @@ def test_failed_check(request):
             allure.attach(driver.get_screenshot_as_png(), name="Error")
             take_screenshot(driver, request.node.nodeid)
             print("executing test failed", request.node.nodeid)
+
 
 # make a screenshot with a name of the test, date and time
 def take_screenshot(driver, nodeid):

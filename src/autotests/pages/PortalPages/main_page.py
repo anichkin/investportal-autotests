@@ -13,7 +13,7 @@ class MainPage(BasePage):
     LOGIN_INPUT = (By.ID, 'Login')
     PASSWORD_INPUT = (By.ID, 'Password')
     AUTH_BUTTON = (By.ID, 'authbtn')
-    ENTER_BUTTON_XPATH = '.button_style_login'
+    ENTER_BUTTON = '.button_style_login'
     LINK_TO_ONLINE_SERVICES_PAGE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[2]/div[3]/div[1]/nav/a[5]')
     LOGIN = 'authorization_test@upt24.ru'
     PASSWORD = '#eZam5rK'
