@@ -60,7 +60,7 @@ class MainPage(BasePage):
         password_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.PASSWORD_INPUT))
         password_input.send_keys(MainPage.PASSWORD)
         allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
-        enter = self.get_clicable_by_css(self.ENTER_BUTTON_XPATH)
+        enter = self.get_clicable_by_css(self.ENTER_BUTTON)
         enter.click()
 
     def logout(self):
