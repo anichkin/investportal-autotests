@@ -13,7 +13,7 @@ class MainPage(BasePage):
     LOGIN_INPUT = (By.ID, 'Login')
     PASSWORD_INPUT = (By.ID, 'Password')
     AUTH_BUTTON = (By.ID, 'authbtn')
-    ENTER_BUTTON_XPATH = '//*[@id="loginForm"]/input[1]'
+    ENTER_BUTTON_XPATH = '.button_style_login'
     LINK_TO_ONLINE_SERVICES_PAGE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[2]/div[3]/div[1]/nav/a[5]')
     LOGIN = 'authorization_test@upt24.ru'
     PASSWORD = '#eZam5rK'
@@ -60,7 +60,8 @@ class MainPage(BasePage):
         password_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(MainPage.PASSWORD_INPUT))
         password_input.send_keys(MainPage.PASSWORD)
         allure.attach(self.driver.get_screenshot_as_png(), name="Screenshot")
-        self.get_clicable_by_xpath(self.ENTER_BUTTON_XPATH).click()
+        enter = self.get_clicable_by_css(self.ENTER_BUTTON_XPATH)
+        enter.click()
 
     def logout(self):
         menu = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(MainPage.LOGIN_PIC))
