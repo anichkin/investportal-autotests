@@ -18,11 +18,11 @@ class NMPPage(BasePage):
     NUMBER_OF_MEASURES = '158'
     MEASURES_BUTTON = '//*[@id="uid-portal"]/div/div[1]/div[2]/div/div[2]/div/div[2]/div[3]/button[2]'
     SUPPORT_MEASURES_XPATH = '//*[@id="support-measures"]'
-    SECOND_MEASURE_XPATH = '//*[@id="support-measures"]/div[2]/a[1]/div[2]'
+    SECOND_MEASURE_XPATH = '//*[@id="support-measures"]/div[2]/a[2]/div[2]'
     SECOND_MEASURE = 'Грант на развитие производства'
-    THIRD_MEASURE_XPATH = '//*[@id="support-measures"]/div[2]/a[2]/div[2]'
+    THIRD_MEASURE_XPATH = '//*[@id="support-measures"]/div[2]/a[3]/div[2]'
     THIRD_MEASURE = 'Проведение и (или) обеспечение проведения публичных деловых мероприятий'
-    FIRST_MEASURE_XPATH = '//*[@id="support-measures"]/div[2]/a[3]/div[2]'
+    FIRST_MEASURE_XPATH = '//*[@id="support-measures"]/div[2]/a[1]/div[2]'
     FIRST_MEASURE = 'Мораторий на повышение арендной платы за земельные участки'
 
 
