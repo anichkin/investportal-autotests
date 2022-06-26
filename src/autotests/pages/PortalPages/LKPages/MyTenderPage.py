@@ -12,7 +12,7 @@ class MyTenderPage(BasePage):
     FAVORITE_XPATH = '//*[@id="app"]/div[3]/div[2]/div/div/div[3]/div[3]/a'
     FAVORITE = 'ИЗБРАННЫЕ ТОРГИ'
     FAVORITE_AMOUNT = 'Всего 4 результатов'
-    FIRST_FAVORITE_TENDER = '//*[@id="app"]/div[3]/div[4]/div/div[2]'
+    FIRST_FAVORITE_TENDER = '#app > div.app > div.uid-lk-main > div > div:nth-child(2)'
     TENDER_NAME_XPATH = '//*[@id="app"]/div[3]/div[4]/div/div[2]/div/div[1]/div[2]'
     TENDER_NAME = '42.2 М 2 НЕЖИЛОЕ ПОМЕЩЕНИЕ В АРЕНДУ'
     MY_FILTERS_TAB_XPATH = '//*[@id="app"]/div[3]/div[2]/div/div/div[3]/div[4]/a'

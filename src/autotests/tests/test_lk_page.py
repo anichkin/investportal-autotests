@@ -86,7 +86,7 @@ def test_my_tenders(driver, base_url):
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('4. Открыть вкладку Избранные торги, проверить первые торги и количество'):
         favorite_tab.click()
-        page.get_visible_by_xpath_long(page.FIRST_FAVORITE_TENDER)
+        page.get_visible_by_css(page.FIRST_FAVORITE_TENDER)
         tender_name = page.get_visible_by_xpath_long(page.TENDER_NAME_XPATH)
         assert tender_name.text == page.TENDER_NAME
         favorite_amount = page.get_visible_by_xpath_long(page.AMOUNT_CHECK)
