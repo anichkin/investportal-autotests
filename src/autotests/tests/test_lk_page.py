@@ -17,7 +17,8 @@ def test_main_lk_page(driver, base_url):
         assert main_lk.title == main_lk.TITLE
 
     with allure.step('2. Проверить наличие виджетов Мои Торги'):
-        assert main_lk.get_visible_by_xpath(main_lk.MY_TENDERS_XPATH).text == main_lk.MY_TENDERS
+        my_tenders = main_lk.get_visible_by_xpath_long(main_lk.MY_TENDERS_XPATH)
+        assert my_tenders.text == main_lk.MY_TENDERS
         assert main_lk.get_visible_by_xpath(main_lk.MAIN_CONTRACTS_XPATH).text == main_lk.MAIN_CONTRACTS
         assert main_lk.get_visible_by_xpath(main_lk.CONTRACT_INFO_XPATH).text == main_lk.CONTRACT_INFO
         assert main_lk.get_visible_by_xpath(main_lk.MAIN_FAVORITE_TENDERS_XPATH).text == main_lk.MAIN_FAVORITE_TENDERS
@@ -72,43 +73,43 @@ def test_my_tenders(driver, base_url):
     with allure.step('2. Открыть вкладку Мои торги - Заявки'):
         page = MyTenderPage(driver, base_url)
         page.get()
-        assert page.get_visible_by_xpath(page.APPLICATION_TAB_XPATH).text == page.APPLICATION_TAB
-        contract_tab = page.get_visible_by_xpath(page.CONTRACT_TAB_XPATH)
+        assert page.get_visible_by_xpath_long(page.APPLICATION_TAB_XPATH).text == page.APPLICATION_TAB
+        contract_tab = page.get_visible_by_xpath_long(page.CONTRACT_TAB_XPATH)
         assert contract_tab.text == page.CONTRACT_TAB
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('3. Открыть вкладку Договоры, проверить количество'):
         contract_tab.click()
-        contract_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        contract_amount = page.get_visible_by_xpath_long(page.AMOUNT_CHECK)
         assert contract_amount.text == page.CONTRACT_AMOUNT
         favorite_tab = page.get_visible_by_xpath(page.FAVORITE_XPATH)
         assert favorite_tab.text == page.FAVORITE
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('4. Открыть вкладку Избранные торги, проверить первые торги и количество'):
         favorite_tab.click()
-        page.get_visible_by_xpath(page.FIRST_FAVORITE_TENDER)
-        tender_name = page.get_visible_by_xpath(page.TENDER_NAME_XPATH)
+        page.get_visible_by_xpath_long(page.FIRST_FAVORITE_TENDER)
+        tender_name = page.get_visible_by_xpath_long(page.TENDER_NAME_XPATH)
         assert tender_name.text == page.TENDER_NAME
-        favorite_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        favorite_amount = page.get_visible_by_xpath_long(page.AMOUNT_CHECK)
         assert favorite_amount.text == page.FAVORITE_AMOUNT
         my_filters_tab = page.get_visible_by_xpath(page.MY_FILTERS_TAB_XPATH)
         assert my_filters_tab.text == page.MY_FILTERS_TAB
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('5. Открыть вкладку Мои фильтры, проверить первый фильтр и количество'):
         my_filters_tab.click()
-        page.get_visible_by_xpath(page.FIRST_FILTER)
-        filter_name = page.get_visible_by_xpath(page.FIRST_FILTER_NAME_XPATH)
+        page.get_visible_by_xpath_long(page.FIRST_FILTER)
+        filter_name = page.get_visible_by_xpath_long(page.FIRST_FILTER_NAME_XPATH)
         assert filter_name.text == page.FIRST_FILTER_NAME
-        filters_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        filters_amount = page.get_visible_by_xpath_long(page.AMOUNT_CHECK)
         assert filters_amount.text == page.FILTERS_AMOUNT
         compare_tab = page.get_visible_by_xpath(page.COMPARE_TAB_XPATH)
         assert compare_tab.text == page.COMPARE_TAB
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('6. Открыть вкладку Сравнение объектов, проверить первый объект и количество'):
         compare_tab.click()
-        page.get_visible_by_xpath(page.COMPARE_AREA)
-        first_tender_name = page.get_visible_by_xpath(page.FIRST_TENDER_NAME_XPATH)
+        page.get_visible_by_xpath_long(page.COMPARE_AREA)
+        first_tender_name = page.get_visible_by_xpath_long(page.FIRST_TENDER_NAME_XPATH)
         assert first_tender_name.text == page.FIRST_TENDER_NAME
-        compare_amount = page.get_visible_by_xpath(page.AMOUNT_CHECK)
+        compare_amount = page.get_visible_by_xpath_long(page.AMOUNT_CHECK)
         assert compare_amount.text == page.COMPARE_AMOUNT
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 

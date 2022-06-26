@@ -11,10 +11,10 @@ def test_mts_page(driver, base_url):
     with allure.step('1. Открыть информационную страницу МТШ, проверить элементы на странице'):
         page = MTSPage(driver, base_url)
         page.get()
-        assert page.get_visible_by_xpath(page.HEADER_XPATH).text == page.HEADER
+        assert page.get_visible_by_xpath_long(page.HEADER_XPATH).text == page.HEADER
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('2. Проверка раздела Проект позволит'):
-        header = page.get_visible_by_xpath(page.HEADER2_XPATH)
+        header = page.get_visible_by_xpath_long(page.HEADER2_XPATH)
         assert header.text == page.HEADER2
         header.location_once_scrolled_into_view
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
@@ -26,7 +26,7 @@ def test_mts_page(driver, base_url):
             assert page.title == page.TITLE
         except Exception:
             button.click()
-        header = page.get_visible_by_xpath(page.HEADER_XPATH)
+        header = page.get_visible_by_xpath_long(page.HEADER_XPATH)
         assert header.text == page.HEADER
         assert page.get_visible_by_xpath(page.SUBTITLE_XPATH).text == page.SUBTITLE
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
@@ -47,7 +47,7 @@ def test_mts_page(driver, base_url):
             assert page.title == page.TITLE
         except Exception:
             button.click()
-        header = page.get_visible_by_xpath(page.HEADER_XPATH)
+        header = page.get_visible_by_xpath_long(page.HEADER_XPATH)
         assert header.text == page.HEADER
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('6. Переход к списку программ'):
