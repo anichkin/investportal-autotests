@@ -14,7 +14,7 @@ class DGPSubjectReestrPage(BasePage):
     DOWNLOAD_BUTTON_CSS = '#app > div.app-wrapper > div.uid-wrapper.flex-grow-1 > div > div.layout > div.content > div.short-info.uid-pa-24 > div.short-info-statement > div > div.download-files > button:nth-child(1)'
     DOWNLOAD_BUTTON = 'Скачать выписку'
     PROPERTY_TAB = '//*[@id="app"]/div[1]/div[2]/div/div[2]/div[1]/ul/li[3]/a'
-    FIRST_PROPERTY = '//*[@id="app"]/div[1]/div[2]/div/div[2]/div[2]/div/div[2]/div[2]/div/div[1]'
+    FIRST_PROPERTY = '#app > div.app-wrapper > div.uid-wrapper.flex-grow-1 > div > div.layout > div.content > div > div.uid-mt-40 > div.uid-mt-24 > div:nth-child(1) > div.opener-header > div.realty-card'
 
 
 

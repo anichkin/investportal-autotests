@@ -46,7 +46,7 @@ def test_open_subject_registry(driver, dgp_base_url):
         with allure.step('Переход на вкладку Объекты недвижимости, проверка наличия хотя бы одного объекта'):
             property_tab = page.get_clicable_by_xpath(page.PROPERTY_TAB)
             property_tab.click()
-            page.get_visible_by_xpath(page.FIRST_PROPERTY)
+            page.get_visible_by_css(page.FIRST_PROPERTY)
             allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
 
