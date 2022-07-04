@@ -25,7 +25,7 @@ class Filter():
 class NewTendersPage(BasePage):
 
     PATH = '/tenders'
-    TITLE = 'Торги. Имущество от города - Инвестиционный портал Москвы'
+    TITLE = 'Торги. Имущество - Имущество от города - Инвестиционный портал Москвы'
     OBJECT_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[1]/div/div'
     TRADE_TYPE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/div'
     SALE_XPATH = '//*[@id="uid-portal"]/div/div[1]/div[1]/div/div/div[2]/div[1]/div[2]/div/div/div[2]/div/div[2]/label[2]/span[2]'
