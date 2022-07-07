@@ -17,11 +17,11 @@ def test_main_lk_page(driver, base_url):
         assert main_lk.title == main_lk.TITLE
 
     with allure.step('2. Проверить наличие виджетов Мои Торги'):
-        my_tenders = main_lk.get_visible_by_xpath_long(main_lk.MY_TENDERS_XPATH)
+        my_tenders = main_lk.get_visible_by_css_long(main_lk.MY_TENDERS_SELECTOR)
         assert my_tenders.text == main_lk.MY_TENDERS
-        assert main_lk.get_visible_by_xpath(main_lk.MAIN_CONTRACTS_XPATH).text == main_lk.MAIN_CONTRACTS
-        assert main_lk.get_visible_by_xpath(main_lk.CONTRACT_INFO_XPATH).text == main_lk.CONTRACT_INFO
-        assert main_lk.get_visible_by_xpath(main_lk.MAIN_FAVORITE_TENDERS_XPATH).text == main_lk.MAIN_FAVORITE_TENDERS
+        assert main_lk.get_visible_by_css(main_lk.MAIN_CONTRACTS_SELECTOR).text == main_lk.MAIN_CONTRACTS
+        assert main_lk.get_visible_by_css(main_lk.CONTRACT_INFO_SELECTOR).text == main_lk.CONTRACT_INFO
+        assert main_lk.get_visible_by_css(main_lk.MAIN_FAVORITE_TENDERS_SELECTOR).text == main_lk.MAIN_FAVORITE_TENDERS
         assert main_lk.get_visible_by_xpath(main_lk.ROOM_XPATH).text == main_lk.ROOM
         assert main_lk.get_visible_by_xpath(main_lk.CAR_PLACE_XPATH).text == main_lk.CAR_PLACE
         assert main_lk.get_visible_by_xpath(main_lk.BUILDING_XPATH).text == main_lk.BUILDING
