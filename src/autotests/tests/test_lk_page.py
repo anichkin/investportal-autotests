@@ -3,6 +3,7 @@ from autotests.pages.PortalPages.main_page import MainPage
 from autotests.pages.PortalPages.LKPages.MyTenderPage import MyTenderPage
 import allure
 import time
+from flaky import flaky
 
 
 def test_main_lk_page(driver, base_url):
@@ -57,7 +58,7 @@ def test_main_lk_page(driver, base_url):
         assert main_lk.get_visible_by_xpath(main_lk.SUPPORT_MEASURES_INFO_XPATH).text == main_lk.SUPPORT_MEASURES_INFO
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
 
-
+@flaky
 def test_my_tenders(driver, base_url):
     """Открытие вкладки Мои Торги в личном кабинете
         Открыть вкладку договоры: проверить количество договоров
@@ -96,7 +97,7 @@ def test_my_tenders(driver, base_url):
         allure.attach(driver.get_screenshot_as_png(), name="Screenshot")
     with allure.step('5. Открыть вкладку Мои фильтры, проверить первый фильтр и количество'):
         my_filters_tab.click()
-        page.get_visible_by_xpath_long(page.FIRST_FILTER)
+        page.get_visible_by_css_long(page.FIRST_FILTER)
         filter_name = page.get_visible_by_xpath_long(page.FIRST_FILTER_NAME_XPATH)
         assert filter_name.text == page.FIRST_FILTER_NAME
         filters_amount = page.get_visible_by_xpath_long(page.AMOUNT_CHECK)

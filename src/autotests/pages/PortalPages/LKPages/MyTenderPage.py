@@ -17,7 +17,7 @@ class MyTenderPage(BasePage):
     TENDER_NAME = '42.2 М 2 НЕЖИЛОЕ ПОМЕЩЕНИЕ В АРЕНДУ'
     MY_FILTERS_TAB_XPATH = '//*[@id="app"]/div[3]/div[2]/div/div/div[3]/div[4]/a'
     MY_FILTERS_TAB = 'МОИ ФИЛЬТРЫ'
-    FIRST_FILTER = '//*[@id="app"]/div[3]/div[4]/div/div[2]/div'
+    FIRST_FILTER = '#app > div.app > div.uid-lk-main > div > div:nth-child(2)'
     FIRST_FILTER_NAME_XPATH = '//*[@id="app"]/div[3]/div[4]/div/div[2]/div/div[1]/div[1]'
     FIRST_FILTER_NAME = 'ТЕСТОВЫЙ ФИЛЬТР'
     FILTERS_AMOUNT = 'Всего 2 результатов'
