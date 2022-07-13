@@ -1,6 +1,8 @@
 from autotests.pages.PortalPages.NewInvestMapPage import NewInvestMapPage
 import allure
+from flaky import flaky
 
+@flaky
 def test_open_map(driver, base_url):
     """Открытие страницы карты, проверка наличия подложки и сайдбара"""
     with allure.step('1. Открыть страницу с картой'):
