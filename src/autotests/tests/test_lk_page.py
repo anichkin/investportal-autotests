@@ -6,6 +6,7 @@ import time
 from flaky import flaky
 
 
+@flaky
 def test_main_lk_page(driver, base_url):
     """Открытие главной страницы ЛК и проверка элементов на ней"""
 

@@ -2,8 +2,10 @@ from autotests.pages.DGPPages.DGPSubjectReestrPage import DGPSubjectReestrPage
 import  allure
 from autotests.pages.DGPPages.DGPMainPage import DGPMainPage
 import time
+from flaky import flaky
 
 
+@flaky
 def test_open_subject_registry(driver, dgp_base_url):
     """Открытие реестра субъектов
         Фильтрация субъектов по объектам недвижимости

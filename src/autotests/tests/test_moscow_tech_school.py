@@ -2,7 +2,9 @@ from autotests.pages.PortalPages.MTSPages.MTSPage import MTSPage
 from autotests.pages.PortalPages.MTSPages.MTSMembersPage import MTSMembersPage
 from autotests.pages.PortalPages.MTSPages.MTSProgramPage import MTSProgramPage
 import allure
+from flaky import flaky
 
+@flaky
 def test_mts_page(driver, base_url):
     """Открытие информационной страницы раздела МТШ, проверка элементов на странице
         Переход на страницe Участникам, проверка элементов на странице
