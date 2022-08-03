@@ -12,4 +12,3 @@
 5. Запуск тестов:
     - Windows: pytest.exe src\autotests\tests
     - Linux: pytest src/autotests/tests
-тест тест тест8888
