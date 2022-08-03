@@ -16,7 +16,7 @@ class MainPage(BasePage):
     ENTER_BUTTON = '.button_style_login'
     LINK_TO_ONLINE_SERVICES_PAGE = (By.XPATH, '//*[@id="invest-moscow-app"]/div[2]/div[3]/div[1]/nav/a[5]')
     LOGIN = 'authorization_test@upt24.ru'
-    PASSWORD = '#eZam5rK'
+    PASSWORD = ''
     HEADER_USER_NAME = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div[2]/div[1]/div/span')
     HEADER_USER_NAME_TEXT = 'Авторизация Т.'
     NOTIFICATION = (By.XPATH, '//*[@id="uid-header-target"]/div/div/div[2]/div/div[1]/div[1]/div')

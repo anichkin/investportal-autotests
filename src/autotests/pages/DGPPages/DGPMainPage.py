@@ -10,7 +10,7 @@ class DGPMainPage(BasePage):
     HEADER = 'АИС УИД'
     LOGIN_INPUT = (By.CSS_SELECTOR,'#LoginTextBox')
     LOGIN = 'dgp_tester'
-    PASSWORD = '4fO#@rpk'
+    PASSWORD = ''
     PASSWORD_INPUT = (By.CSS_SELECTOR, '#PasswordTextBox')
     ENTER_BUTTON = (By.XPATH, '//*[@id="LoginForm"]/fieldset/div[4]/div/button[1]')
     TRADES_SUBSYSTEM_XPATH = '/html/body/div[2]/div/div/div[1]/a'
